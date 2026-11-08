@@ -26,7 +26,8 @@ CSS and script URLs are versioned to avoid reusing the previous interface's cach
 - `index.html`: semantic page and Russian no-JavaScript fallback content.
 - `content.js`: language dictionaries, `villaConfig` contact/video settings,
   confirmed amenity scope and image metadata.
-- `app.js`: navigation, gallery, enquiry validation and optional animations.
+- `app.js`: navigation, gallery and enquiry validation.
+- `monkeys.js`: optional troupe controller with an active-page timer and independently steered runners.
 - `style.css`: design tokens and responsive layout.
 - `assets/photos/`: 45 original, unretouched owner photographs. `manifest.json`
   records source names, category, scope, focal point, alt text and image role.
@@ -59,3 +60,21 @@ See `CONTENT_TODO.md` for remaining owner inputs. No analytics, external fonts,
 server dependencies or fabricated legal policies are included.
 
 `assets/monkey-run.png` is an AI-generated four-frame transparent animation sheet, not live animal footage. The monkey is opt-in and its state resets when the page reloads.
+
+## Latest interaction and content changes
+
+The owner supplied the postal address and confirmed Karma Kandara as the hotel.
+Both appear discreetly near the bottom of the site; coordinates are still unknown.
+The story has a centered heading above top-aligned text and photo columns.
+Foreground foliage, distant background and light rays respond at different scroll
+speeds to create depth. Reduced-motion preference disables those transforms.
+
+The monkey switch remains opt-in. While this page is visible, a second monkey
+becomes available after 30 seconds, then another every 30 seconds, up to 10 at
+270 seconds. Time starts when the page opens, even before opting in. Hidden tabs
+and time away from a page in the back-forward cache do not count. Disabling hides
+and clears the troop; enabling again restores the count for elapsed viewing time.
+Each runner has a different pace and gait phase, smooth acceleration/arrival,
+slowly varying destination offsets and soft separation from neighbours. One RAF
+loop drives the troop. Reduced motion uses stationary poses placed near the last
+touch or cursor target. All sprites are decorative and pointer-transparent.

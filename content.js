@@ -14,3 +14,38 @@ const photos = [{"file": "01.jpg", "source": "Фото Villa /Фото вилл�
 Object.assign(copy.ru,{monkeyOn:'Позвать обезьянку',monkeyOff:'Спрятать обезьянку'});
 Object.assign(copy.en,{monkeyOn:'Meet our little monkey',monkeyOff:'Hide the monkey'});
 Object.assign(copy.es,{monkeyOn:'Llamar al monito',monkeyOff:'Ocultar el monito'});
+
+// Editorial revisions and owner-supplied location.
+Object.assign(copy.ru, {
+  sharedScope: 'Общие объекты на территории отеля',
+  photoScopeShared: 'Общие объекты на территории отеля',
+  slow: 'В ритме Бали',
+  stayDescription: 'Описание вашего будущего отдыха',
+  story: 'Проснуться среди зелени. Солнечный свет на террасе, прохлада воды и тропический сад. Здесь легко отложить планы и просто побыть вместе. Вилла целиком в вашем распоряжении.',
+  locationCopy: 'На юге Бали, на полуострове Букит.',
+  hotelNote: 'Вилла расположена на территории отеля Karma Kandara.',
+  monkeyOff: 'Спрятать обезьянок',
+  villaAddress: 'Jl. Villa Kandara Banjar Wijaya Kusuma Ungasan Benoa Kuta Sel. Banjar Wijaya Kusuma, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80362, Индонезия'
+});
+Object.assign(copy.en, {
+  sharedScope: 'Shared facilities within the hotel grounds',
+  photoScopeShared: 'Shared facilities within the hotel grounds',
+  slow: 'At Bali’s pace',
+  stayDescription: 'A glimpse of your future stay',
+  story: 'Wake up surrounded by green. Sunlight on the terrace, cool water and a tropical garden. Set your plans aside and enjoy being together. The entire villa is yours for your stay.',
+  locationCopy: 'In southern Bali, on the Bukit Peninsula.',
+  hotelNote: 'The villa is located within the grounds of Karma Kandara hotel.',
+  monkeyOff: 'Hide the monkeys',
+  villaAddress: 'Jl. Villa Kandara Banjar Wijaya Kusuma Ungasan Benoa Kuta Sel. Banjar Wijaya Kusuma, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80362, Indonesia'
+});
+Object.assign(copy.es, {
+  sharedScope: 'Instalaciones compartidas en el recinto del hotel',
+  photoScopeShared: 'Instalaciones compartidas en el recinto del hotel',
+  slow: 'Al ritmo de Bali',
+  stayDescription: 'Imagina tu próxima estancia',
+  story: 'Despertar entre el verde. Luz en la terraza, agua fresca y un jardín tropical. Un lugar para dejar los planes a un lado y disfrutar juntos. Toda la villa es vuestra durante la estancia.',
+  locationCopy: 'En el sur de Bali, en la península de Bukit.',
+  hotelNote: 'La villa está ubicada en el recinto del hotel Karma Kandara.',
+  monkeyOff: 'Ocultar los monitos',
+  villaAddress: 'Jl. Villa Kandara Banjar Wijaya Kusuma Ungasan Benoa Kuta Sel. Banjar Wijaya Kusuma, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80362, Indonesia'
+});

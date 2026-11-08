@@ -15,11 +15,11 @@ The owner approved publishing this revision on 8 November 2026. The site remains
 ## Outstanding
 
 - Actual villa video and permission to use it. `villaConfig.video` is empty; real villa photograph is shown, not a simulated video tour.
-- Monkey now uses a generated photographic-style four-pose macaque sprite, with an opt-in switch at the start of the site. It is animation, not real animal footage.
+- Monkey now uses a generated photographic-style four-pose macaque sprite, with an opt-in switch at the start of the site and a maximum of ten followers, growing every 30 seconds of visible page time. It is animation, not real animal footage.
 - WhatsApp Business number: `villaConfig.whatsapp` is empty; the button is visibly disabled. No invented number.
 - Exact bedroom/bathroom allocation, check-in/out times, minimum stay, cancellation and deposit terms, child/infant rules.
 - Legal contracting party, approved privacy and stay terms. No fabricated legal pages.
-- Exact hotel name/address and coordinates and permission to mention the hotel. No map point or unverified distances.
+- Hotel name (Karma Kandara), address and permission to mention it are now supplied by the owner. Coordinates remain unknown; no map point or travel distances are invented.
 - Confirm current resort conditions before public launch, including any exceptions to included access and lounger charges.
 - Original image resolution is around 1024 px. Real images are unretouched. Higher resolution source files would improve large-screen sharpness; no upscaling/retouching has been claimed.
 

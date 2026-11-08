@@ -32,20 +32,10 @@ if(villaConfig.whatsapp){const b=$('#whatsapp-action');b.disabled=false;b.textCo
 $$('.copy-email').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(villaConfig.email);$('#copy-status').textContent=t('copied');b.textContent=t('copied')}catch{$('#copy-status').textContent=t('copyFailed');b.textContent=t('copyFailed')}}));
 // Optional video: no request until a real source is configured; static poster otherwise.
 const video=$('#hero-video'),videoButton=$('#video-toggle');if(villaConfig.video){video.src=villaConfig.video;video.hidden=false;videoButton.hidden=false;videoButton.textContent=t('play');videoButton.addEventListener('click',async()=>{if(video.paused){try{await video.play();videoButton.textContent=t('pause')}catch{videoButton.textContent=t('play')}}else{video.pause();videoButton.textContent=t('play')}});if(!reduced.matches&&!navigator.connection?.saveData)video.play().then(()=>videoButton.textContent=t('pause')).catch(()=>{});reduced.addEventListener('change',()=>{if(reduced.matches)video.pause()})}
-// Four photographic-style sprite poses, following the pointer without blocking interaction.
-const monkey=$('#monkey'),toggle=$('#monkey-toggle');
-let enabled=false,monkeyFrame=0,x=0,y=0,targetX=0,targetY=0,lastTime=0;
-let monkeyReady=false;
-function updateMonkeyControl(){toggle.setAttribute('aria-pressed',String(enabled));$('#monkey-label').textContent=t(enabled?'monkeyOff':'monkeyOn')}
-function monkeyBounds(px,py){return {x:Math.max(0,Math.min(innerWidth-84,px)),y:Math.max(0,Math.min(innerHeight-150,py))}}
-function setMonkeyPosition(){monkey.style.transform=`translate3d(${x}px,${y}px,0)`}
-function placeTarget(px,py){const p=monkeyBounds(px-100,py-45);targetX=p.x;targetY=p.y;if(enabled&&reduced.matches){x=targetX;y=targetY;setMonkeyPosition()}}
-function runMonkey(now){if(!enabled||reduced.matches||document.hidden){monkeyFrame=0;return}const dt=Math.min((now-(lastTime||now))/1000,.05);lastTime=now;const dx=targetX-x,dy=targetY-y,distance=Math.hypot(dx,dy);const moving=distance>3;monkey.classList.toggle('running',moving);if(moving){const step=Math.min(distance,dt*210);x+=dx/distance*step;y+=dy/distance*step;if(Math.abs(dx)>2)monkey.classList.toggle('face-left',dx<0);setMonkeyPosition()}monkeyFrame=requestAnimationFrame(runMonkey)}
-function startMonkeyLoop(){if(monkeyFrame)cancelAnimationFrame(monkeyFrame);monkeyFrame=0;lastTime=0;monkey.classList.remove('running');if(enabled&&!reduced.matches&&!document.hidden)monkeyFrame=requestAnimationFrame(runMonkey)}
-const monkeyAsset=new Image();monkeyAsset.onload=()=>{monkeyReady=true};monkeyAsset.src='assets/monkey-run.png';
-toggle.addEventListener('click',async e=>{if(!enabled&&!monkeyReady){try{await monkeyAsset.decode();monkeyReady=true}catch{return}}enabled=!enabled;monkey.hidden=!enabled;if(enabled){const rect=toggle.getBoundingClientRect();const pos=monkeyBounds(rect.right+8,rect.top-20);x=targetX=pos.x;y=targetY=pos.y;setMonkeyPosition()}updateMonkeyControl();startMonkeyLoop()});
-addEventListener('pointermove',e=>{if(enabled)placeTarget(e.clientX,e.clientY)},{passive:true});
-addEventListener('pointerdown',e=>{if(enabled&&!e.target.closest('#monkey-toggle'))placeTarget(e.clientX,e.clientY)},{passive:true});
-addEventListener('resize',()=>{const p=monkeyBounds(x,y);x=p.x;y=p.y;const target=monkeyBounds(targetX,targetY);targetX=target.x;targetY=target.y;setMonkeyPosition()});
-reduced.addEventListener('change',startMonkeyLoop);document.addEventListener('visibilitychange',startMonkeyLoop);
-setLanguage(lang);updateMonkeyControl();
+// The opt-in troupe controller is isolated from gallery and booking code.
+const monkeyTroupe = createMonkeyTroupe({
+  root: $('#monkey'), toggle: $('#monkey-toggle'), label: $('#monkey-label'),
+  reduced, translate: t
+});
+function updateMonkeyControl(){ monkeyTroupe.updateLabel(); }
+setLanguage(lang);
