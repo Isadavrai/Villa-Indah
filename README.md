@@ -1,8 +1,9 @@
 # Private Villa Indah
 
-A responsive, dependency-free website prototype in Russian, English and Spanish.
+Static multilingual villa website: Russian, English and Spanish. No dependency
+installation or build is needed.
 
-## Run locally
+## Run
 
 From `/workspace/Villa-Indah`:
 
@@ -10,32 +11,49 @@ From `/workspace/Villa-Indah`:
 python3 -m http.server 3000 --bind 0.0.0.0
 ```
 
-Open the server in your local development browser. No dependency installation or build is required.
+## Deployment
 
-## Photographs
+GitHub Pages serves the repository's `main` branch at `/ (root)`:
+https://isadavrai.github.io/Villa-Indah/
 
-45 original JPEG photographs from the owner's archive are bundled in `assets/photos/`.
-`manifest.json` maps the numbered files to their original names. Originals have not
-been retouched or upscaled. The main sequence uses `38.jpg` (pool facing the facade)
-and `14.jpg` (villa from the lower grounds), followed by bedroom `23.jpg` and living
-room `26.jpg`. Separate galleries contain 38 villa and 7 resort photographs.
-Gallery links open the original photograph in a new tab.
+The owner approved publishing the redesign on 8 November 2026. Relative asset
+paths support the project base path. `.nojekyll` disables Jekyll processing.
+The public draft retains `noindex,nofollow` until the final launch is approved.
+CSS and script URLs are versioned to avoid reusing the previous interface's cache.
 
-## Contact
+## Content and assets
 
-Availability buttons open a dialog with a localized `mailto:` link to
-`villaindah.valeriia@gmail.com`. It prepares an enquiry for dates and guest count
-in the visitor's email client. Sending requires the visitor's action. This does
-not provide a server-side booking, calendar, or email-delivery service.
+- `index.html`: semantic page and Russian no-JavaScript fallback content.
+- `content.js`: language dictionaries, `villaConfig` contact/video settings,
+  confirmed amenity scope and image metadata.
+- `app.js`: navigation, gallery, enquiry validation and optional animations.
+- `style.css`: design tokens and responsive layout.
+- `assets/photos/`: 45 original, unretouched owner photographs. `manifest.json`
+  records source names, category, scope, focal point, alt text and image role.
+  Mirror manifest edits in the `photos` array in `content.js`.
+- `assets/jungle-background.png`: generated photorealistic rainforest artwork,
+  used as the full hero background. It does not document the villa grounds.
+- `assets/jungle-frame.png`: earlier generated framing asset retained for future
+  adjustments; it is hidden in the current full-background design.
 
-## Current scope
+The main villa photos are `38.jpg` (pool facing the facade), `14.jpg` (view from
+lower grounds), `23.jpg` (bedroom) and `26.jpg` (living room). Resort photographs
+are labelled as shared facilities. The gallery supports categories, arrow keys,
+Escape, focus restoration and touch swipes.
 
-- Three languages, with remembered language preference.
-- Responsive layout and scroll animation respecting reduced-motion settings.
-- Original villa and resort photographs and optional emoji monkey following pointer movements. The emoji is a prototype, not the requested realistic animated monkey; a suitable animated asset remains to be created.
-- Accessible enquiry dialog opens the owner’s email address in the visitor’s email client.
-- No prices, analytics, external fonts, or external dependencies.
+## Enquiries
 
-## Before publication
+Email: `villaindah.valeriia@gmail.com`. The enquiry opens the visitor's email app
+with dates, adults, children and optional message. The visitor sends the message;
+there is no server submission, live availability, payment or automatic booking.
+A copy-email button is available when the mail application is not configured.
 
-Finish image enhancement, replace the emoji with the agreed realistic animation, and test on real mobile devices. A video tour is not yet produced. Verify current resort terms and all amenities before publishing. The villa has four bedrooms, capacity for eight guests, three bathrooms and a separate guest toilet. Hotel beach, infinity pool and cinema are shared facilities; food and drinks cost extra, and hotel beach cinema screenings are free according to the owner.
+Date validation uses Asia/Makassar calendar days, check-out after check-in, at
+least one adult and eight guests maximum including children. No prices appear.
+`villaConfig.whatsapp` is empty and its button disabled until a confirmed number
+is supplied. `villaConfig.video` is empty; the hero is a static rainforest image.
+Only configure a real licensed villa video. Automatic playback respects reduced
+motion and data saving. The optional monkey is still an emoji prototype.
+
+See `CONTENT_TODO.md` for remaining owner inputs. No analytics, external fonts,
+server dependencies or fabricated legal policies are included.

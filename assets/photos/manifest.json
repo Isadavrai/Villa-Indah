@@ -1,182 +1,632 @@
 [
   {
     "file": "01.jpg",
-    "source": "Фото Villa /Фото виллы/Открытая ванна в комнате у бассейна.JPG"
+    "source": "Фото Villa /Фото виллы/Открытая ванна в комнате у бассейна.JPG",
+    "id": 1,
+    "category": "bathrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Открытая ванна в комнате у бассейна",
+      "en": "Villa bathroom",
+      "es": "Baño de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "02.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж.JPG",
+    "id": 2,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня минус первый этаж",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "03.jpg",
-    "source": "Фото Villa /Фото виллы/Зона при входе на территорию виллы справа.JPG"
+    "source": "Фото Villa /Фото виллы/Зона при входе на территорию виллы справа.JPG",
+    "id": 3,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Зона при входе на территорию виллы справа",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "04.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня в комнате у бассейна 2.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня в комнате у бассейна 2.JPG",
+    "id": 4,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня в комнате у бассейна 2",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "05.jpg",
-    "source": "Фото Villa /Фото виллы/Гостинна 3.JPG"
+    "source": "Фото Villa /Фото виллы/Гостинна 3.JPG",
+    "id": 5,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Гостинна 3",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "06.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня второй этаж.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня второй этаж.JPG",
+    "id": 6,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня второй этаж",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "07.jpg",
-    "source": "Фото Villa /Фото виллы/Вид со второго этажа на бассейн.JPG"
+    "source": "Фото Villa /Фото виллы/Вид со второго этажа на бассейн.JPG",
+    "id": 7,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Вид со второго этажа на бассейн",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "08.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня в комнате у бассейна 1.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня в комнате у бассейна 1.JPG",
+    "id": 8,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня в комнате у бассейна 1",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "09.jpg",
-    "source": "Фото Villa /Фото виллы/Обеденный стол и гостинная.JPG"
+    "source": "Фото Villa /Фото виллы/Обеденный стол и гостинная.JPG",
+    "id": 9,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Обеденный стол и гостинная",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "10.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 2.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 2.JPG",
+    "id": 10,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня минус первый этаж 2",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "11.jpg",
-    "source": "Фото Villa /Фото виллы/Ванная в комнате у бассейна 1.JPG"
+    "source": "Фото Villa /Фото виллы/Ванная в комнате у бассейна 1.JPG",
+    "id": 11,
+    "category": "bathrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Ванная в комнате у бассейна 1",
+      "en": "Villa bathroom",
+      "es": "Baño de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "12.jpg",
-    "source": "Фото Villa /Фото виллы/Гостинная 1.JPG"
+    "source": "Фото Villa /Фото виллы/Гостинная 1.JPG",
+    "id": 12,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Гостинная 1",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "13.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 3.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 3.JPG",
+    "id": 13,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня минус первый этаж 3",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "14.jpg",
-    "source": "Фото Villa /Фото виллы/вид на виллу с нижней точки территории.JPG"
+    "source": "Фото Villa /Фото виллы/вид на виллу с нижней точки территории.JPG",
+    "id": 14,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "вид на виллу с нижней точки территории",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "exterior"
   },
   {
     "file": "15.jpg",
-    "source": "Фото Villa /Фото виллы/Ванная в комнате у бассейна.JPG"
+    "source": "Фото Villa /Фото виллы/Ванная в комнате у бассейна.JPG",
+    "id": 15,
+    "category": "bathrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Ванная в комнате у бассейна",
+      "en": "Villa bathroom",
+      "es": "Baño de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "16.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 1.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 1.JPG",
+    "id": 16,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня минус первый этаж 1",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "17.jpg",
-    "source": "Фото Villa /Фото виллы/Гостинная 2.JPG"
+    "source": "Фото Villa /Фото виллы/Гостинная 2.JPG",
+    "id": 17,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Гостинная 2",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "18.jpg",
-    "source": "Фото Villa /Фото виллы/ванная комната, спальня второй этаж 1.JPG"
+    "source": "Фото Villa /Фото виллы/ванная комната, спальня второй этаж 1.JPG",
+    "id": 18,
+    "category": "bathrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "ванная комната, спальня второй этаж 1",
+      "en": "Villa bathroom",
+      "es": "Baño de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "19.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 4.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня минус первый этаж 4.JPG",
+    "id": 19,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня минус первый этаж 4",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "20.jpg",
-    "source": "Фото Villa /Фото виллы/Комната у бассейна 1.JPG"
+    "source": "Фото Villa /Фото виллы/Комната у бассейна 1.JPG",
+    "id": 20,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Комната у бассейна 1",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "21.jpg",
-    "source": "Фото Villa /Фото виллы/ванная комната, спальня второй этаж 2.JPG"
+    "source": "Фото Villa /Фото виллы/ванная комната, спальня второй этаж 2.JPG",
+    "id": 21,
+    "category": "bathrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "ванная комната, спальня второй этаж 2",
+      "en": "Villa bathroom",
+      "es": "Baño de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "22.jpg",
-    "source": "Фото Villa /Фото виллы/Комната у бассейна 2.JPG"
+    "source": "Фото Villa /Фото виллы/Комната у бассейна 2.JPG",
+    "id": 22,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Комната у бассейна 2",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "23.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня в комнате у бассейна.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня в комнате у бассейна.JPG",
+    "id": 23,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня в комнате у бассейна",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "24.jpg",
-    "source": "Фото Villa /Фото виллы/Обеденный стол.JPG"
+    "source": "Фото Villa /Фото виллы/Обеденный стол.JPG",
+    "id": 24,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Обеденный стол",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "25.jpg",
-    "source": "Фото Villa /Фото виллы/ванная комната, спальня второй этаж.JPG"
+    "source": "Фото Villa /Фото виллы/ванная комната, спальня второй этаж.JPG",
+    "id": 25,
+    "category": "bathrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "ванная комната, спальня второй этаж",
+      "en": "Villa bathroom",
+      "es": "Baño de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "26.jpg",
-    "source": "Фото Villa /Фото виллы/Гостинная.JPG"
+    "source": "Фото Villa /Фото виллы/Гостинная.JPG",
+    "id": 26,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Гостинная",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "27.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня второй этаж 1.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня второй этаж 1.JPG",
+    "id": 27,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня второй этаж 1",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "28.jpg",
-    "source": "Фото Villa /Фото виллы/Комната на первом этаже у входа .JPG"
+    "source": "Фото Villa /Фото виллы/Комната на первом этаже у входа .JPG",
+    "id": 28,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Комната на первом этаже у входа ",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "29.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня второй этаж 3.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня второй этаж 3.JPG",
+    "id": 29,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня второй этаж 3",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "30.jpg",
-    "source": "Фото Villa /Фото виллы/Спальня второй этаж 2.JPG"
+    "source": "Фото Villa /Фото виллы/Спальня второй этаж 2.JPG",
+    "id": 30,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спальня второй этаж 2",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "31.jpg",
-    "source": "Фото Villa /Фото виллы/Кухня 1.JPG"
+    "source": "Фото Villa /Фото виллы/Кухня 1.JPG",
+    "id": 31,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Кухня 1",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "32.jpg",
-    "source": "Фото Villa /Фото виллы/Спаль и балкон на втором этаже.JPG"
+    "source": "Фото Villa /Фото виллы/Спаль и балкон на втором этаже.JPG",
+    "id": 32,
+    "category": "bedrooms",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спаль и балкон на втором этаже",
+      "en": "Villa bedroom",
+      "es": "Dormitorio de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "33.jpg",
-    "source": "Фото Villa /Фото виллы/Спуск в нижнюю комнату.JPG"
+    "source": "Фото Villa /Фото виллы/Спуск в нижнюю комнату.JPG",
+    "id": 33,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Спуск в нижнюю комнату",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "34.jpg",
-    "source": "Фото Villa /Фото виллы/Кухня.JPG"
+    "source": "Фото Villa /Фото виллы/Кухня.JPG",
+    "id": 34,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Кухня",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "35.jpg",
-    "source": "Фото Villa /Фото виллы/Зона бассейна.JPG"
+    "source": "Фото Villa /Фото виллы/Зона бассейна.JPG",
+    "id": 35,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Зона бассейна",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "36.jpg",
-    "source": "Фото Villa /Фото виллы/Зона бассейна 1.JPG"
+    "source": "Фото Villa /Фото виллы/Зона бассейна 1.JPG",
+    "id": 36,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Зона бассейна 1",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "37.jpg",
-    "source": "Фото Villa /Фото виллы/Кухня и стол.JPG"
+    "source": "Фото Villa /Фото виллы/Кухня и стол.JPG",
+    "id": 37,
+    "category": "living",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Кухня и стол",
+      "en": "Villa living and dining spaces",
+      "es": "Salón y comedor de la villa"
+    },
+    "role": "gallery"
   },
   {
     "file": "38.jpg",
-    "source": "Фото Villa /Фото виллы/Бассейн и вид на дом.JPG"
+    "source": "Фото Villa /Фото виллы/Бассейн и вид на дом.JPG",
+    "id": 38,
+    "category": "outdoors",
+    "scope": "private",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Бассейн и вид на дом",
+      "en": "Villa grounds",
+      "es": "Exterior de la villa"
+    },
+    "role": "hero"
   },
   {
     "file": "39.jpg",
-    "source": "Фото Villa /Фото территории отеля/Вид на отель 1.JPG"
+    "source": "Фото Villa /Фото территории отеля/Вид на отель 1.JPG",
+    "id": 39,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Вид на отель 1",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   },
   {
     "file": "40.jpg",
-    "source": "Фото Villa /Фото территории отеля/Вид на отель 2.JPG"
+    "source": "Фото Villa /Фото территории отеля/Вид на отель 2.JPG",
+    "id": 40,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Вид на отель 2",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   },
   {
     "file": "41.jpg",
-    "source": "Фото Villa /Фото территории отеля/Бассейн около ресторна.JPG"
+    "source": "Фото Villa /Фото территории отеля/Бассейн около ресторна.JPG",
+    "id": 41,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Бассейн около ресторна",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   },
   {
     "file": "42.jpg",
-    "source": "Фото Villa /Фото территории отеля/Вид на океан из ресторана около бассейна.JPG"
+    "source": "Фото Villa /Фото территории отеля/Вид на океан из ресторана около бассейна.JPG",
+    "id": 42,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Вид на океан из ресторана около бассейна",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   },
   {
     "file": "43.jpg",
-    "source": "Фото Villa /Фото территории отеля/Вид на отель.JPG"
+    "source": "Фото Villa /Фото территории отеля/Вид на отель.JPG",
+    "id": 43,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Вид на отель",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   },
   {
     "file": "44.jpg",
-    "source": "Фото Villa /Фото территории отеля/Ресторан на втором этаже около бассена.JPG"
+    "source": "Фото Villa /Фото территории отеля/Ресторан на втором этаже около бассена.JPG",
+    "id": 44,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Ресторан на втором этаже около бассена",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   },
   {
     "file": "45.jpg",
-    "source": "Фото Villa /Фото территории отеля/Кинотеатр на берегу.JPG"
+    "source": "Фото Villa /Фото территории отеля/Кинотеатр на берегу.JPG",
+    "id": 45,
+    "category": "resort",
+    "scope": "shared",
+    "focalPoint": "50% 50%",
+    "alt": {
+      "ru": "Кинотеатр на берегу",
+      "en": "Shared resort facility",
+      "es": "Instalación compartida del hotel"
+    },
+    "role": "gallery"
   }
 ]
