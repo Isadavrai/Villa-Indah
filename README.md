@@ -53,7 +53,9 @@ least one adult and eight guests maximum including children. No prices appear.
 `villaConfig.whatsapp` is empty and its button disabled until a confirmed number
 is supplied. `villaConfig.video` is empty; the hero is a static rainforest image.
 Only configure a real licensed villa video. Automatic playback respects reduced
-motion and data saving. The optional monkey is still an emoji prototype.
+motion and data saving. The optional monkey uses four generated photorealistic macaque poses in a transparent sprite sheet. Its first-screen switch enables pointer/touch following, direction changes and idle pauses. Reduced motion disables gait animation and smooth following. No interactions are blocked.
 
 See `CONTENT_TODO.md` for remaining owner inputs. No analytics, external fonts,
 server dependencies or fabricated legal policies are included.
+
+`assets/monkey-run.png` is an AI-generated four-frame transparent animation sheet, not live animal footage. The monkey is opt-in and its state resets when the page reloads.

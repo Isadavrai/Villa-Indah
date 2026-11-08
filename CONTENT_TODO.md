@@ -15,7 +15,7 @@ The owner approved publishing this revision on 8 November 2026. The site remains
 ## Outstanding
 
 - Actual villa video and permission to use it. `villaConfig.video` is empty; real villa photograph is shown, not a simulated video tour.
-- Realistic animated monkey asset. The optional emoji remains explicitly labelled as a prototype, disabled initially.
+- Monkey now uses a generated photographic-style four-pose macaque sprite, with an opt-in switch at the start of the site. It is animation, not real animal footage.
 - WhatsApp Business number: `villaConfig.whatsapp` is empty; the button is visibly disabled. No invented number.
 - Exact bedroom/bathroom allocation, check-in/out times, minimum stay, cancellation and deposit terms, child/infant rules.
 - Legal contracting party, approved privacy and stay terms. No fabricated legal pages.
