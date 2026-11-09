@@ -49,3 +49,8 @@ Object.assign(copy.es, {
   monkeyOff: 'Ocultar los monitos',
   villaAddress: 'Jl. Villa Kandara Banjar Wijaya Kusuma Ungasan Benoa Kuta Sel. Banjar Wijaya Kusuma, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80362, Indonesia'
 });
+
+// The monkey itself is the invitation; an unobtrusive control lets visitors stop.
+Object.assign(copy.ru, {monkeyOn:'Позвать друзей', monkeyInvite:'Позвать друзей обезьянки', monkeyOff:'Обезьянки уже играют', monkeyRest:'Дать обезьянкам отдохнуть'});
+Object.assign(copy.en, {monkeyOn:'Call my friends', monkeyInvite:'Invite the monkey’s friends', monkeyOff:'The monkeys are playing', monkeyRest:'Let the monkeys rest'});
+Object.assign(copy.es, {monkeyOn:'Llamar a mis amigos', monkeyInvite:'Invitar a los amigos del monito', monkeyOff:'Los monitos están jugando', monkeyRest:'Dejar descansar a los monitos'});

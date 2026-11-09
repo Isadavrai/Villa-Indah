@@ -35,7 +35,8 @@ const video=$('#hero-video'),videoButton=$('#video-toggle');if(villaConfig.video
 // The opt-in troupe controller is isolated from gallery and booking code.
 const monkeyTroupe = createMonkeyTroupe({
   root: $('#monkey'), toggle: $('#monkey-toggle'), label: $('#monkey-label'),
-  reduced, translate: t
+  reduced, translate: t, rest: $('#monkey-rest'), clips: monkeyClips
 });
 function updateMonkeyControl(){ monkeyTroupe.updateLabel(); }
 setLanguage(lang);
+createLivingJungle();

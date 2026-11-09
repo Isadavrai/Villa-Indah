@@ -97,3 +97,6 @@ remains available and supplies the static toggle icon.
 The supplied animations have 9–25 encoded frames, with repeated poses. They are
 not 24–30 unique FPS footage. Their alpha channels are transparent, but pale
 contour/matte artifacts are visible, especially against dark backgrounds.
+
+
+Latest combined revision: continuous rainforest photograph with softly masked local wind and light; no side foliage panels. The seated monkey in the hero starts the troupe. Arrivals count from activation, every 30 visible seconds, capped at ten. Selected monkeys approach photo edges, hop, sit and play the supplied look/scratch animation before returning. The small rest control stops and resets the troupe. Reduced motion uses static poses only. `monkey-clips.js` maps the five supplied WebP assets; their limited source frames may remain visibly stepped. Original assets and uploads are retained.
