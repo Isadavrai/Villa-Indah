@@ -66,7 +66,7 @@
 #monkey { position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; contain: strict; transform: none; will-change: auto; }
 .monkey-runner { position: absolute; top: 0; left: 0; width: 76px; height: 76px; opacity: 0; transition: opacity .6s; will-change: transform; pointer-events: none; }
 .monkey-runner.arrived { opacity: 1; }
-.monkey-runner .monkey-sprite { animation: none; transition: none; }
+.monkey-runner .monkey-sprite { display: block; width: 100%; height: 100%; object-fit: contain; background: none; animation: none; transition: none; }
 .monkey-runner.face-left .monkey-sprite { transform: scaleX(-1); }
 #monkey:has(.monkey-runner) { font-size: 0; }
 @media(max-width:700px) {

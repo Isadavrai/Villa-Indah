@@ -54,7 +54,7 @@ least one adult and eight guests maximum including children. No prices appear.
 `villaConfig.whatsapp` is empty and its button disabled until a confirmed number
 is supplied. `villaConfig.video` is empty; the hero is a static rainforest image.
 Only configure a real licensed villa video. Automatic playback respects reduced
-motion and data saving. The optional monkey uses four generated photorealistic macaque poses in a transparent sprite sheet. Its first-screen switch enables pointer/touch following, direction changes and idle pauses. Reduced motion disables gait animation and smooth following. No interactions are blocked.
+motion and data saving. The optional monkeys use five supplied transparent WebP animations. Its first-screen switch enables pointer/touch following, direction changes and idle pauses. Reduced motion disables gait animation and smooth following. No interactions are blocked.
 
 See `CONTENT_TODO.md` for remaining owner inputs. No analytics, external fonts,
 server dependencies or fabricated legal policies are included.
@@ -74,7 +74,26 @@ becomes available after 30 seconds, then another every 30 seconds, up to 10 at
 270 seconds. Time starts when the page opens, even before opting in. Hidden tabs
 and time away from a page in the back-forward cache do not count. Disabling hides
 and clears the troop; enabling again restores the count for elapsed viewing time.
-Each runner has a different pace and gait phase, smooth acceleration/arrival,
+Each runner has a different pace, smooth acceleration/arrival,
 slowly varying destination offsets and soft separation from neighbours. One RAF
 loop drives the troop. Reduced motion uses stationary poses placed near the last
 touch or cursor target. All sprites are decorative and pointer-transparent.
+
+
+## Monkey animation assets
+
+`monkeys.js` renders decorative images inside the existing responsive runner boxes.
+`run.webp` loops during fast movement, `walk.webp` during slower movement, and
+`sit.webp` while resting. Arrival plays `jump-land.webp` once (990 ms), then sits
+before following the pointer. Seated monkeys occasionally play `look-scratch.webp`
+once (4958 ms), then sit again; movement can interrupt that gesture. State changes
+replace the image, while ordinary animation ticks retain it. Direction changes
+flip only the image. All five originals are retained without recompression.
+
+Reduced motion uses `sit-static.png`, a transparent 192 px first frame extracted
+from `sit.webp`, without animated WebP playback. The original `monkey-run.png`
+remains available and supplies the static toggle icon.
+
+The supplied animations have 9–25 encoded frames, with repeated poses. They are
+not 24–30 unique FPS footage. Their alpha channels are transparent, but pale
+contour/matte artifacts are visible, especially against dark backgrounds.

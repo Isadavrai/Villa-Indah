@@ -5,8 +5,49 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate}) {
   let enabled = false, busy = false, frame = 0, lastFrame = 0;
   let visibleMs = 0, visibleSince = document.hidden ? null : performance.now();
   let pointer = {x: innerWidth / 2, y: innerHeight / 2}, lastPointerTime = 0;
-  const image = new Image();
-  image.src = 'assets/monkey-run.png';
+  const assets = {
+    run: 'assets/monkeys/run.webp', walk: 'assets/monkeys/walk.webp',
+    jump: 'assets/monkeys/jump-land.webp', sit: 'assets/monkeys/sit.webp',
+    scratch: 'assets/monkeys/look-scratch.webp', static: 'assets/monkeys/sit-static.png'
+  };
+  // Durations from the supplied WebP frames; one-shot files also encode loop=1.
+  const durations = {jump: 990, scratch: 4958};
+  const images = new Map();
+  function preload(state) {
+    if (!images.has(state)) {
+      const image = new Image();
+      image.src = assets[state];
+      images.set(state, image);
+    }
+    return images.get(state).decode();
+  }
+  function setAnimation(r, state, now) {
+    if (r.state === state) return;
+    const sprite = document.createElement('img');
+    sprite.className = 'monkey-sprite';
+    sprite.alt = '';sprite.draggable = false;
+    sprite.src = assets[state];
+    r.sprite.replaceWith(sprite);r.sprite = sprite;
+    r.state = state;r.stateSince = now;
+    r.node.dataset.animation = state;
+    if (state === 'sit') r.gestureAt = now + 12000 + r.angle * 650;
+  }
+  function animate(r, now) {
+    if (reduced.matches) {setAnimation(r, 'static', now);return}
+    if (r.state === 'jump') {
+      if (now - r.stateSince < durations.jump) return;
+      setAnimation(r, 'sit', now);return;
+    }
+    if (r.speed > 12) {
+      setAnimation(r, r.speed > (r.state === 'run' ? 85 : 110) ? 'run' : 'walk', now);
+    } else if (r.state === 'scratch' && now - r.stateSince < durations.scratch) {
+      return;
+    } else if (r.state === 'sit' && now >= r.gestureAt) {
+      setAnimation(r, 'scratch', now);
+    } else {
+      setAnimation(r, 'sit', now);
+    }
+  }
 
   function activeTime(now = performance.now()) {
     return visibleMs + (visibleSince === null ? 0 : now - visibleSince);
@@ -25,11 +66,8 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate}) {
   }
   function render(r) {
     r.node.style.transform = `translate3d(${r.x.toFixed(2)}px,${r.y.toFixed(2)}px,0)`;
-    r.sprite.style.backgroundPosition = r.speed > 12 && !reduced.matches
-      ? ['0% 0%', '100% 0%', '0% 100%', '100% 100%'][Math.floor(r.phase) % 4]
-      : '100% 0%';
+    animate(r, activeTime());
     r.node.classList.toggle('face-left', r.facing < 0);
-    r.node.classList.toggle('running', r.speed > 12 && !reduced.matches);
     r.node.classList.add('arrived');
   }
   function addRunner() {
@@ -43,9 +81,12 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate}) {
     const size = (innerWidth <= 700 ? 65 : 78) * scale;
     node.style.width = node.style.height = `${size}px`;
     const pos = bounds(i % 2 ? innerWidth - size : 6, pointer.y + 60 + (i % 3) * 12, size);
-    runners.push({node, sprite, size, scale, x: pos.x, y: pos.y, vx: 0, vy: 0,
+    const runner = {node, sprite, size, scale, x: pos.x, y: pos.y, vx: 0, vy: 0,
       angle: i * 2.399963, radius: i === 0 ? 0 : 38 + Math.sqrt(i) * 24,
-      phase: i * .71, speed: 0, facing: i % 2 ? -1 : 1, pace: 175 + (i * 17) % 65});
+      speed: 0, facing: i % 2 ? -1 : 1, pace: 175 + (i * 17) % 65};
+    runners.push(runner);
+    setAnimation(runner, reduced.matches ? 'static' : 'jump', activeTime());
+    render(runner);
   }
   function syncCount() {
     if (!enabled || document.hidden) return;
@@ -73,6 +114,8 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate}) {
     lastFrame = now;
     syncCount();
     for (const r of runners) {
+      // Let the arrival land before resuming the existing pursuit physics.
+      if (r.state === 'jump') {render(r);continue}
       const goal = targetFor(r, now);
       let dx = goal.x - r.x, dy = goal.y - r.y;
       // Soft separation lets the troop spread out without abrupt collision turns.
@@ -93,7 +136,6 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate}) {
       const next = bounds(r.x + r.vx * dt, r.y + r.vy * dt, r.size);
       r.x = next.x;r.y = next.y;r.speed = Math.hypot(r.vx, r.vy);
       if (Math.abs(r.vx) > 18) r.facing = Math.sign(r.vx);
-      r.phase += r.speed * dt / (24 * r.scale);
       render(r);
     }
     frame = requestAnimationFrame(tick);
@@ -109,7 +151,7 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate}) {
     if (busy) return;
     if (!enabled) {
       busy = true;
-      try {await image.decode()} catch {busy = false;return}
+      try {await Promise.all((reduced.matches ? ['static'] : Object.keys(assets)).map(preload))} catch {busy = false;return}
       busy = false;
       const rect = toggle.getBoundingClientRect();
       pointer = {x: rect.right, y: rect.top + 50};
