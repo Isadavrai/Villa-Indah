@@ -120,3 +120,13 @@ body:has(#lightbox[open]) .monkey-rest { visibility: hidden; }
 .jungle-paused .canopy-layer{animation-play-state:paused;}
 @media(max-width:700px){.canopy-layer{object-position:53% 50%;}}
 @media(prefers-reduced-motion:reduce){.canopy-layer{display:none;animation:none;}}
+/* Feed the hanging macaque: one accessible target, with the banana as the cue. */
+.branch-monkey.feed-monkey{left:24px;top:18px;width:180px;height:150px;filter:drop-shadow(0 2px 2px #05190d50);}
+.feed-monkey img{width:125px;height:150px;object-fit:contain;}
+.feed-monkey .banana{position:absolute;left:123px;top:68px;width:48px;height:48px;display:grid;place-items:center;font-size:33px;font-weight:normal;line-height:1;transition:transform .2s;}
+.feed-monkey:hover .banana,.feed-monkey:focus-visible .banana{transform:translate(-3px,-3px) rotate(-8deg);}
+.feed-monkey .banana-trail{position:absolute;inset:0;width:180px;height:150px;fill:none;stroke:#f2e5b5;stroke-width:1.5;stroke-linecap:round;pointer-events:none;}
+.banana-trail path:first-child{stroke-dasharray:3 5;}
+.feed-monkey > #monkey-label{left:146px;top:118px;transform:translateX(-50%);font-size:10px;letter-spacing:0;opacity:.95;}
+@media(max-width:700px){.branch-monkey.feed-monkey{left:8px;top:10px;width:160px;height:132px;}.feed-monkey img{width:110px;height:132px;}.feed-monkey .banana-trail{width:160px;height:132px;}.feed-monkey .banana{left:106px;top:57px;font-size:29px;}.feed-monkey > #monkey-label{left:130px;top:105px;font-size:9px;}}
+@media(prefers-reduced-motion:reduce){.feed-monkey .banana{transition:none;}.feed-monkey:hover .banana,.feed-monkey:focus-visible .banana{transform:none;}}

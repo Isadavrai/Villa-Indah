@@ -54,3 +54,7 @@ Object.assign(copy.es, {
 Object.assign(copy.ru, {monkeyOn:'Позвать друзей', monkeyInvite:'Позвать друзей обезьянки', monkeyOff:'Обезьянки уже играют', monkeyRest:'Дать обезьянкам отдохнуть'});
 Object.assign(copy.en, {monkeyOn:'Call my friends', monkeyInvite:'Invite the monkey’s friends', monkeyOff:'The monkeys are playing', monkeyRest:'Let the monkeys rest'});
 Object.assign(copy.es, {monkeyOn:'Llamar a mis amigos', monkeyInvite:'Invitar a los amigos del monito', monkeyOff:'Los monitos están jugando', monkeyRest:'Dejar descansar a los monitos'});
+
+Object.assign(copy.ru,{monkeyOn:'Дать банан',monkeyInvite:'Дать обезьянке банан и позвать её друзей'});
+Object.assign(copy.en,{monkeyOn:'Give a banana',monkeyInvite:'Give the monkey a banana and invite its friends'});
+Object.assign(copy.es,{monkeyOn:'Darle un plátano',monkeyInvite:'Darle un plátano al mono e invitar a sus amigos'});

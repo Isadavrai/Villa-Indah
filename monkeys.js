@@ -1,7 +1,7 @@
 /* Optional macaques: follow, approach a real ledge, jump, sit and look around.
  * Character footage is replaceable in monkey-clips.js; fallback poses are previews. */
 function createMonkeyTroupe({root, toggle, label, reduced, translate, rest, clips}) {
-  const MAX_MONKEYS = 10, ARRIVAL_MS = 30000;
+  const MAX_MONKEYS = 10, ARRIVAL_MS = 7000;
   const runners = [], perches = [...document.querySelectorAll('.pool-photo,.garden-photo,.rooms .photo,.experience-photo')];
   let enabled = false, busy = false, frame = 0, lastFrame = 0;
   let visibleMs = 0, visibleSince = null, growthTimer;
@@ -168,7 +168,7 @@ function createMonkeyTroupe({root, toggle, label, reduced, translate, rest, clip
     const rect=toggle.getBoundingClientRect();
     pointer={x:Math.min(innerWidth-30,rect.right+140),y:Math.min(innerHeight-100,rect.bottom+120)};
     visibleMs=0;visibleSince=document.hidden?null:performance.now();lastPointerTime=0;
-    enabled=true;root.hidden=false;rest.hidden=false;addRunner({x:rect.left,y:rect.top});
+    enabled=true;root.hidden=false;rest.hidden=false;addRunner({x:rect.left+30,y:rect.top+40});
     preloadClips();updateLabel();restart();scheduleGrowth();
   });
   rest.addEventListener('click',()=>{disable();if(toggle.getBoundingClientRect().bottom>0)toggle.focus({preventScroll:true});});
