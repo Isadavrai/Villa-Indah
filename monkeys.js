@@ -9,7 +9,7 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
  const mobile=()=>matchMedia('(pointer:coarse)').matches || innerWidth<=700;
  const asset=id=>base+id+(id==='A1'||id==='A2'?'.gif':'.webp');
  const still=id=>base+id+'-still.png';
- function updateLabel(){toggle.setAttribute('aria-pressed',String(enabled));toggle.setAttribute('aria-label',translate(enabled?'monkeyOff':'monkeyOn'));label.textContent=translate(enabled?'monkeyShortOff':'monkeyShortOn');}
+ function updateLabel(){toggle.setAttribute('aria-pressed',String(enabled));toggle.setAttribute('aria-label',translate(enabled?'monkeyOff':'monkeyOn'));label.textContent=translate('monkeyShortOff');label.hidden=!enabled;}
  function setTrigger(){toggle.querySelector('img').src=reduced.matches?still('A1'):asset('A1');}
  function spawn(id,holder,kind,index){
   const el=document.createElement('img');el.className='macaque '+kind;el.alt='';el.draggable=false;el.decoding='async';el.dataset.monkey=id;el.src=reduced.matches?still(id):asset(id);el.style.setProperty('--index',index);holder.append(el);
