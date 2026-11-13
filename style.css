@@ -206,3 +206,20 @@ header nav{padding-left:85px;max-width:465px}
 .resident-monkey > #monkey-label{top:0;left:50%;font-size:9px;font-weight:700;min-width:66px;text-align:center;line-height:1.1;color:var(--ink)}
 .resident-monkey[aria-pressed=true] img{margin-top:14px}
 @media(max-width:700px){.brand .brand-mark{width:108px;height:34px}.brand .brand-mark img{width:147px;top:-8px;left:-20px}.resident-monkey > #monkey-label{top:0;font-size:8px;min-width:55px}.resident-monkey[aria-pressed=true] img{margin-top:12px}}
+/* Supplied multilingual font and requested ivory palette. */
+@font-face{font-family:IndahAlumni;src:url('assets/fonts/AlumniSansPinstripe-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:IndahAlumni;src:url('assets/fonts/AlumniSansPinstripe-Italic.ttf') format('truetype');font-style:italic;font-weight:400;font-display:swap}
+:root{--paper:#F7F3EA}
+:lang(ru),:lang(en),:lang(es){--site-font:IndahAlumni}
+body{font-family:var(--site-font),sans-serif;font-size:22px}
+h1,h2,h3,.private,.hero-sub,.facts strong,input,textarea,button,.brand span{font-family:var(--site-font),sans-serif}
+header nav,.languages button,.outline,.solid,.outline-dark,.gallery-filters button,.gallery-item>span,label>span,.rooms article>p,.experiences p,.small,.facts span,.amenities{font-size:18px}
+.eyebrow{font-size:15px}.hero-sub{font-size:26px}input,textarea{font-size:22px}
+.gallery-item img{height:auto;object-fit:contain}
+#map-container iframe{border-radius:16px;height:400px;width:100%}
+.resident-monkey:not([aria-pressed=true]) img{outline:1px solid #a8957480;border-radius:50%;outline-offset:2px}
+@media(max-width:700px){#map-container iframe{height:300px}header .languages button{font-size:16px}header nav{padding-left:25px}.hero-sub{font-size:23px}.gallery-filters button{font-size:18px}}
+body{font-weight:600}
+header nav,.languages button,.solid,.outline,.outline-dark,.gallery-filters button,label>span,.mobile-availability{font-weight:700;font-size:20px}
+h1,h2,h3,.private{font-weight:400}
+@media(max-width:700px){header .languages button{font-size:18px}#menu-toggle{font-size:18px}.hero .eyebrow{font-size:13px}.hero-sub{font-size:26px}}

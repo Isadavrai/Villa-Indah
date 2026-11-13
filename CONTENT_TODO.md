@@ -25,7 +25,7 @@ The owner approved publishing this revision on 8 November 2026. The site remains
 
 ## Media provenance
 
-- `assets/photos/`: 45 original owner-uploaded JPEG files. Manifest records source names, role, categories, localized alternative text, scope and focal points.
+- `assets/photos-new/`: 53 owner-supplied WebP files in ten folders. Manifest records source names, role, categories, localized alternative text, scope and focal points.
 - `assets/jungle-frame.png`: AI-generated photographic-style vegetation framing asset. It does not document actual vegetation or views on the property; the actual villa shown beneath it is owner photography.
 - No video has been produced. No measured performance score or completed real-world mobile device test is claimed.
 

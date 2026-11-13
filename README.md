@@ -29,7 +29,7 @@ CSS and script URLs are versioned to avoid reusing the previous interface's cach
 - `app.js`: navigation, gallery and enquiry validation.
 - `monkeys.js`: optional troupe controller with an active-page timer and independently steered runners.
 - `style.css`: design tokens and responsive layout.
-- `assets/photos/`: 45 original, unretouched owner photographs. `manifest.json`
+- `assets/photos-new/`: 53 owner-supplied WebP photographs in ten folders. `manifest.json`
   records source names, category, scope, focal point, alt text and image role.
   Mirror manifest edits in the `photos` array in `content.js`.
 - `assets/jungle-background.png`: generated photorealistic rainforest artwork,
