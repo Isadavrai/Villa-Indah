@@ -223,3 +223,66 @@ body{font-weight:600}
 header nav,.languages button,.solid,.outline,.outline-dark,.gallery-filters button,label>span,.mobile-availability{font-weight:700;font-size:20px}
 h1,h2,h3,.private{font-weight:400}
 @media(max-width:700px){header .languages button{font-size:18px}#menu-toggle{font-size:18px}.hero .eyebrow{font-size:13px}.hero-sub{font-size:26px}}
+/* Editorial hierarchy and a compact, caption-free photo collage. */
+.hero .hero-content{margin-left:8%;padding:40px 0;max-width:660px}
+.hero .eyebrow{margin:0 0 12px;letter-spacing:2.4px}
+.hero h1{font-size:clamp(90px,10vw,150px);line-height:1;margin:0;letter-spacing:-2px}
+.hero .hero-sub{font-size:clamp(24px,2.2vw,30px);line-height:1.35;letter-spacing:0;margin:20px 0 0;padding:0;max-width:540px}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px 28px;margin-top:30px}
+.hero-actions .solid{margin:0}
+.hero .hero-actions .discover{display:inline-block;margin:0;padding:10px 0;border-bottom:1px solid #ffffff80;font-size:20px;letter-spacing:0;line-height:1.4}
+.intro h2{max-width:760px;text-wrap:balance}
+.intro-copy{max-width:660px;line-height:1.6}
+h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.story-text>p{font-size:24px;line-height:1.6}
+.story-heading p{font-size:20px}
+.story .text-link{font-size:20px}
+.section-heading{align-items:start;gap:32px}
+.section-heading>p{margin-top:26px;line-height:1.55}
+.rooms article>p,.experiences p,.stay-scopes p:not(.eyebrow){font-size:22px;line-height:1.5}
+.rooms h3,.experiences h3{font-size:32px;margin:20px 0 12px;line-height:1.15}
+.rooms article>p,.experiences p{margin:0}
+.resort h2{max-width:820px}
+.resort-copy{max-width:690px;line-height:1.55}
+.experiences article{min-width:0}
+.experience-photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:20px}
+.experiences article>span{display:none}
+.experiences h3{min-height:2.3em}
+.gallery{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.gallery-group{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));gap:8px}
+.gallery-group.mixed{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));aspect-ratio:3/2}
+.gallery .gallery-item,.gallery .gallery-item:first-child{display:block;position:relative;width:100%;min-width:0;min-height:0;padding:0;margin:0;grid-column:auto;align-self:stretch;overflow:hidden;aspect-ratio:3/2}
+.gallery .mixed .gallery-item{aspect-ratio:auto}
+.gallery .gallery-item img,.gallery .gallery-item:first-child img{display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+.gallery .gallery-item:focus-visible{outline-offset:-4px;outline-width:3px;z-index:1}
+.gallery-filters{margin-bottom:20px}
+@media(min-width:701px){
+ .story,.living,.resort,.editorial-gallery,.faq,.location,.map-section{padding-left:8%;padding-right:8%}
+}
+@media(max-width:700px){
+ .hero .hero-content{margin:0;padding:30px 24px;max-width:100%;width:100%}
+ .hero h1{font-size:100px}
+ .hero .hero-sub{font-size:26px;max-width:300px}
+ .hero-actions{gap:12px 22px;margin-top:24px}
+ .hero-actions .solid{padding:14px 20px}
+ .hero .hero-actions .discover{font-size:20px}
+ .story-text>p{font-size:22px}
+ .section-heading>p{margin-top:16px}
+ .experiences h3{min-height:0}
+ .gallery-group.three:not(.mixed){grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gallery-group.three:not(.mixed) .gallery-item:first-child{grid-column:1 / -1;aspect-ratio:2/1}
+ .gallery-group,.gallery{gap:6px}
+ .gallery-filters{margin-bottom:16px}
+}
+.form-grid .phone-field{grid-column:1 / -1}
+@media(min-width:1200px){.experiences h3{min-height:1.15em}}
+/* Switch to the existing menu before navigation can wrap into the hero. */
+@media(min-width:701px) and (max-width:1199px){
+ #menu-toggle{display:block;grid-column:1;grid-row:1;justify-self:start;margin-left:72px;border:0;padding:8px;background:none;color:inherit;font-size:20px}
+ header nav{display:none;position:absolute;top:100%;left:0;right:0;max-width:none;padding:20px 8%;background:var(--paper);box-shadow:0 1px 0 #dedcd4}
+ header nav.open{display:flex;flex-direction:column;gap:0}
+ header nav a{display:block;padding:12px;font-size:22px}
+ header .languages{margin-right:0}
+ header>.booking{display:none}
+}

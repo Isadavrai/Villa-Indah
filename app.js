@@ -4,7 +4,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let filter='Master Bedroom',expanded=false,visiblePhotos=[],currentPhoto=0,lastGalleryFocus;
 const lightbox=$('#lightbox'),form=$('#enquiry-form'),errorBox=$('#form-error');
 function t(key){return copy[lang][key]||key}
-function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';$('#copy-status').textContent='';updateMonkeyControl();try{localStorage.setItem('indah-language',lang)}catch{}}
+function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';$('#copy-status').textContent='';updateMonkeyControl();try{localStorage.setItem('indah-language',lang)}catch{}}
 $$('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));
 $('#year').textContent=new Date().getFullYear();
 // Navigation, with native links remaining usable without JavaScript.
@@ -16,9 +16,43 @@ let scrollPending=false;function scrollEffects(){scrollPending=false;$('#site-he
 addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(scrollEffects)}},{passive:true});addEventListener('resize',scrollEffects);reduced.addEventListener('change',scrollEffects);scrollEffects();
 // Gallery: categories, keyboard navigation, native modal focus and swipe.
 const grid=$('#photo-grid');
-function renderGallery(){visiblePhotos=photos.filter(p=>p.roomId===filter);grid.replaceChildren();(expanded?visiblePhotos:visiblePhotos.slice(0,12)).forEach((p,index)=>{const button=document.createElement('button');button.className='gallery-item';const img=document.createElement('img');img.src=p.file;img.alt=p.alt[lang];img.loading='lazy';img.width=p.width;img.height=p.height;const caption=document.createElement('span');caption.textContent=p.alt[lang]+(p.scope==='shared'?' · '+t('photoScopeShared'):'');button.append(img,caption);button.addEventListener('click',()=>{lastGalleryFocus=button;currentPhoto=index;showPhoto(index);lightbox.showModal();scrollEffects()});grid.append(button)});$('#show-all').hidden=expanded||visiblePhotos.length<=12;$$('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===filter)))}
+function renderGallery(){
+  visiblePhotos=photos.filter(p=>p.roomId===filter);
+  grid.replaceChildren();
+  const shown=expanded?visiblePhotos:visiblePhotos.slice(0,12);
+  // Small complete groups keep each tab compact, without empty grid cells.
+  for(let start=0;start<shown.length;){
+    const remaining=shown.length-start;
+    const count=remaining===4?2:Math.min(3,remaining);
+    const group=shown.slice(start,start+count);
+    const portraits=group.filter(p=>p.height>p.width);
+    const mixed=count===3&&portraits.length===1;
+    const row=document.createElement('div');
+    row.className='gallery-group'+(mixed?' mixed':'')+(count===3?' three':'');
+    row.style.setProperty('--columns',count);
+    let landscapeRow=0;
+    group.forEach((p,offset)=>{
+      const index=start+offset;
+      const button=document.createElement('button');
+      button.className='gallery-item';
+      button.setAttribute('aria-label',p.alt[lang]+' · '+(index+1)+' / '+visiblePhotos.length);
+      if(mixed){
+        if(p.height>p.width){button.style.gridColumn='2';button.style.gridRow='1 / 3'}
+        else{button.style.gridColumn='1';button.style.gridRow=String(++landscapeRow)}
+      }
+      const img=document.createElement('img');
+      img.src=p.file;img.alt=p.alt[lang];img.loading='lazy';img.width=p.width;img.height=p.height;
+      button.append(img);
+      button.addEventListener('click',()=>{lastGalleryFocus=button;currentPhoto=index;showPhoto(index);lightbox.showModal();scrollEffects()});
+      row.append(button);
+    });
+    grid.append(row);start+=count;
+  }
+  $('#show-all').hidden=expanded||visiblePhotos.length<=12;
+  $$('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===filter)));
+}
 function renderFilters(){const host=$('#gallery-filters');host.replaceChildren();roomTabs.forEach(id=>{const button=document.createElement('button');button.dataset.filter=id;button.textContent=id==='all'?t('allPhotos'):roomIdLabel(lang,id);button.setAttribute('aria-pressed',String(id===filter));button.addEventListener('click',()=>{filter=id;expanded=false;renderGallery()});host.append(button)})}
-$('#show-all').addEventListener('click',()=>{expanded=true;renderGallery();grid.children[12]?.focus()});
+$('#show-all').addEventListener('click',()=>{expanded=true;renderGallery();grid.querySelectorAll('.gallery-item')[12]?.focus()});
 function showPhoto(index){currentPhoto=(index+visiblePhotos.length)%visiblePhotos.length;const p=visiblePhotos[currentPhoto];$('#lightbox-image').src=p.file;$('#lightbox-image').alt=p.alt[lang];$('#lightbox-caption').textContent=p.alt[lang]+' · '+t(p.scope==='shared'?'photoScopeShared':'photoScopePrivate');$('#lightbox-counter').textContent=`${currentPhoto+1} / ${visiblePhotos.length}`}
 $('#lightbox-prev').addEventListener('click',()=>showPhoto(currentPhoto-1));$('#lightbox-next').addEventListener('click',()=>showPhoto(currentPhoto+1));$('#lightbox-close').addEventListener('click',()=>lightbox.close());lightbox.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();showPhoto(currentPhoto-1)}if(e.key==='ArrowRight'){e.preventDefault();showPhoto(currentPhoto+1)}});lightbox.addEventListener('close',()=>{lastGalleryFocus?.focus();scrollEffects()});lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close()});let touchX;$('#lightbox-image').addEventListener('touchstart',e=>touchX=e.changedTouches[0].clientX,{passive:true});$('#lightbox-image').addEventListener('touchend',e=>{const delta=e.changedTouches[0].clientX-touchX;if(Math.abs(delta)>45)showPhoto(currentPhoto+(delta<0?1:-1))},{passive:true});
 // Calendar dates are compared as YYYY-MM-DD strings; never converted to UTC.
