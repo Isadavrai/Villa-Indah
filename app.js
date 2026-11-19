@@ -1,11 +1,11 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 let lang='ru';try{lang=localStorage.getItem('indah-language')||'ru'}catch{}if(!copy[lang])lang='ru';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-let faqExpanded=false;
+let faqExpanded=false,formStatusKey='',enquirySending=false,bookingFormStarted=false;
 let filter='Master Bedroom',expanded=false,visiblePhotos=[],currentPhoto=0,lastGalleryFocus;
 const lightbox=$('#lightbox'),form=$('#enquiry-form'),errorBox=$('#form-error');
 function t(key){return copy[lang][key]||key}
-function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();renderFaq();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';$('#copy-status').textContent='';updateMonkeyControl();updatePrivacyLanguage();try{localStorage.setItem('indah-language',lang)}catch{}}
+function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();renderFaq();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';$('#copy-status').textContent='';updateMonkeyControl();updatePrivacyLanguage();if(formStatusKey)$('#form-status').textContent=t(formStatusKey);try{localStorage.setItem('indah-language',lang)}catch{}}
 $$('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));
 $('#year').textContent=new Date().getFullYear();
 // Navigation, with native links remaining usable without JavaScript.
@@ -76,13 +76,27 @@ function validateEnquiry(){
 const submit=$('#enquiry-submit');
 if(!villaConfig.formEndpoint){submit.disabled=true;submit.title=copy[lang].formPending}
 else{$('#form-config-note').hidden=true}
+function setEnquiryStatus(key){formStatusKey=key;$('#form-status').textContent=key?t(key):''}
+form.addEventListener('input',e=>{if(bookingFormStarted||!e.target.name||e.target.name==='_gotcha')return;bookingFormStarted=true;window.indahAnalytics.track('booking_form_start')});
 form.addEventListener('submit',async e=>{
- e.preventDefault();if(!villaConfig.formEndpoint)return;if(!validateEnquiry())return;
- const status=$('#form-status');status.textContent=t('formSending');submit.disabled=true;
- try{const response=await fetch(villaConfig.formEndpoint,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw Error(String(response.status));status.textContent=t('formSuccess');form.reset();syncDateLimits();}
- catch{status.textContent=t('formFailure')}finally{submit.disabled=false}
+ e.preventDefault();if(enquirySending||!villaConfig.formEndpoint||form.elements._gotcha.value.trim())return;
+ setEnquiryStatus('');if(!validateEnquiry())return;
+ enquirySending=true;submit.disabled=true;form.setAttribute('aria-busy','true');setEnquiryStatus('formSending');
+ const data=new FormData(form);data.set('language',lang);
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),30000);
+ try{
+  const response=await fetch(villaConfig.formEndpoint,{method:'POST',body:data,headers:{Accept:'application/json'},signal:controller.signal});
+  if(!response.ok)throw Error(String(response.status));
+  const result=await response.json();if(result.ok===false||result.errors?.length)throw Error('Submission rejected');
+  setEnquiryStatus('formSuccess');window.indahAnalytics.track('generate_lead');form.reset();syncDateLimits();
+ }catch{setEnquiryStatus('formFailure')}
+ finally{clearTimeout(timeout);enquirySending=false;submit.disabled=false;form.setAttribute('aria-busy','false')}
 });
-if(villaConfig.whatsapp){const b=$('#whatsapp-action');b.hidden=false;b.href='https://wa.me/'+villaConfig.whatsapp.replace(/\D/g,'')}
+if(villaConfig.telegramUsername&&/^[A-Za-z0-9_]{5,32}$/.test(villaConfig.telegramUsername)){
+ const telegram=$('#telegram-action');telegram.href='https://t.me/'+villaConfig.telegramUsername;
+ telegram.addEventListener('click',()=>window.indahAnalytics.track('click_telegram'));
+}
+$$('a[href^="mailto:"]').forEach(a=>a.addEventListener('click',()=>window.indahAnalytics.track('click_email')));
 $$('.copy-email').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('.direct-contact .email').textContent.trim());$('#copy-status').textContent=t('copied');b.textContent=t('copied')}catch{$('#copy-status').textContent=t('copyFailed');b.textContent=t('copyFailed')}}));
 // Optional video: no request until a real source is configured; static poster otherwise.
 const video=$('#hero-video'),videoButton=$('#video-toggle');if(villaConfig.video){video.src=villaConfig.video;video.hidden=false;videoButton.hidden=false;videoButton.textContent=t('play');videoButton.addEventListener('click',async()=>{if(video.paused){try{await video.play();videoButton.textContent=t('pause')}catch{videoButton.textContent=t('play')}}else{video.pause();videoButton.textContent=t('play')}});if(!reduced.matches&&!navigator.connection?.saveData)video.play().then(()=>videoButton.textContent=t('pause')).catch(()=>{});reduced.addEventListener('change',()=>{if(reduced.matches)video.pause()})}
@@ -95,7 +109,7 @@ function updateMonkeyControl(){ monkeyTroupe.updateLabel(); }
 setLanguage(lang);
 // The hero shows the actual villa photograph; no generated foliage overlays it.
 if(villaConfig.mapsDirectionsUrl){$('#map-directions').href=villaConfig.mapsDirectionsUrl;$('#map-directions').hidden=false;$('#map-pending').textContent=t('mapLinkNote')}
-if(villaConfig.mapsEmbedUrl && villaConfig.mapsDirectionsUrl){initialisePrivacyMap()}
+initialisePrivacyMap();
 
 function renderFaq(){
  const host=$('#faq-entries'),openId=host.querySelector('details[open]')?.dataset.faqId;

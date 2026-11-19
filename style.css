@@ -450,3 +450,9 @@ body:has(dialog[open]){overflow:hidden}
 .hero-logo img{position:absolute;width:133.33%;max-width:none;height:auto;left:-16.66%;top:-78%;display:block}
 .resort .experiences{margin-top:28px}
 @media(max-width:700px){.hero h1.hero-logo{width:290px;max-width:100%;margin-top:16px}.resort .experiences{margin-top:28px}}
+.telegram-action{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px}
+.telegram-action svg{width:20px;height:20px;flex:none}
+#policy-body .consent-label{margin:16px 0;min-height:44px;align-items:center}
+#policy-body #save-privacy{margin:18px 0 0}
+#cookie-banner .cookie-actions button{flex:0 1 auto}
+@media(max-width:700px){.contact-actions .telegram-action{width:100%}#cookie-banner .cookie-actions{gap:8px}#cookie-banner .cookie-actions button{flex:1 1 140px}}
