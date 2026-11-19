@@ -341,3 +341,44 @@ body:has(dialog[open]){overflow:hidden}
  #cookie-banner{bottom:10px;left:10px;right:10px;padding:16px}.cookie-actions button{font-size:13px}
  #policy-dialog{padding:24px}.map-placeholder{padding:20px}
 }
+/* Photo-led story composition and perches attached to actual objects. */
+.story{align-items:stretch;column-gap:5%}
+.story-left{display:flex;flex-direction:column;gap:32px;min-width:0}
+.story-lounge{flex:1;min-height:280px;margin:0}
+.story-lounge>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story #garden-perch .garden-photo{height:100%;min-height:540px;aspect-ratio:4/5}
+.perch-object,.facts,.stay-scopes{position:relative}
+.rooms{margin-top:76px}
+.experiences{margin-top:86px;align-items:stretch}
+.experience-media .experience-photo{margin:0;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto}
+.experiences article{display:flex;flex-direction:column}
+.experiences h3{margin:22px 0 16px;min-height:2.4em}
+.experiences article>p{margin:0;flex:1}
+.stay-scopes{margin-top:72px;align-items:stretch;gap:30px}
+.stay-scopes article{display:flex;flex-direction:column;min-width:0}
+.stay-scopes article>.eyebrow{min-height:2.8em;margin:0 0 14px}
+.stay-scopes h3{font-size:26px;line-height:1.2;min-height:2.4em;margin:0 0 16px}
+.stay-scopes article>p:not(.eyebrow){margin:0}
+.gallery-perch{margin-top:76px}
+.perch-object>.macaque.anchored,.facts>.macaque.anchored,.stay-scopes>.macaque.anchored{position:absolute;top:0;bottom:auto;left:auto;right:12px;width:76px;height:76px;transform:translateY(-90%);z-index:2;pointer-events:none}
+.perch-object>.macaque.anchored[data-side=left],.facts>.macaque.anchored[data-side=left],.stay-scopes>.macaque.anchored[data-side=left]{left:12px;right:auto}
+.perch-object>.macaque.anchored.hanging{top:100%;width:96px;height:96px;transform:translateY(-2%)}
+@media(max-width:700px){
+ .story{row-gap:32px}.story-left{gap:28px}.story-lounge{min-height:0;aspect-ratio:3/2;flex:auto;margin-bottom:72px}
+ .story #garden-perch .garden-photo{height:auto;min-height:0;aspect-ratio:4/5}
+ .experiences{gap:68px}.experiences h3,.stay-scopes h3,.stay-scopes article>.eyebrow{min-height:0}
+ .stay-scopes{gap:32px}.stay-scopes h3{font-size:24px}
+ .perch-object>.macaque.anchored,.facts>.macaque.anchored,.stay-scopes>.macaque.anchored{width:60px;height:60px}
+ .perch-object>.macaque.anchored.hanging{width:76px;height:76px}
+ .facts{margin-top:72px}.rooms{gap:76px}.gallery-perch{margin-top:68px}
+}
+.perch-object>.macaque.anchored[data-monkey=A4]{transform:translateY(-86%)}
+.perch-object>.macaque.anchored[data-monkey=A5]{transform:translateY(-86%)}
+@supports(grid-template-rows:subgrid){
+ @media(min-width:701px){
+  .stay-scopes article,.experiences article{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0}
+  .stay-scopes article>.eyebrow,.stay-scopes h3,.experiences h3{min-height:0}
+ }
+}
+.story #garden-perch{min-width:0}
+.story #garden-perch .garden-photo{width:100%;min-width:0}
