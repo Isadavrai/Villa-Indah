@@ -4,7 +4,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let filter='Master Bedroom',expanded=false,visiblePhotos=[],currentPhoto=0,lastGalleryFocus;
 const lightbox=$('#lightbox'),form=$('#enquiry-form'),errorBox=$('#form-error');
 function t(key){return copy[lang][key]||key}
-function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';$('#copy-status').textContent='';updateMonkeyControl();try{localStorage.setItem('indah-language',lang)}catch{}}
+function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';$('#copy-status').textContent='';updateMonkeyControl();updatePrivacyLanguage();try{localStorage.setItem('indah-language',lang)}catch{}}
 $$('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));
 $('#year').textContent=new Date().getFullYear();
 // Navigation, with native links remaining usable without JavaScript.
@@ -64,10 +64,11 @@ function validateEnquiry(){
  let key='',field;const name=f.name.value.trim(),email=f.email.value.trim(),phone=f.phone.value.replace(/[\s().-]/g,'');
  if(!name){key='errorName';field=f.name}
  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){key='errorEmail';field=f.email}
- else if(!/^\+[1-9]\d{7,14}$/.test(phone)){key='errorPhone';field=f.phone}
+ else if(phone&&!/^\+[1-9]\d{7,14}$/.test(phone)){key='errorPhone';field=f.phone}
  else if(!f.checkin.value||!f.checkout.value){key='errorDates';field=!f.checkin.value?f.checkin:f.checkout}
  else if(f.checkin.value<baliToday()){key='errorPast';field=f.checkin}
  else if(f.checkout.value<=f.checkin.value){key='errorOrder';field=f.checkout}
+ else if(!f.privacyConsent.checked){key='errorConsent';field=f.privacyConsent}
  else {const a=Number(f.adults.value),c=Number(f.children.value);if(f.adults.value===''||f.children.value===''||!Number.isInteger(a)||!Number.isInteger(c)||a<1||c<0||a+c>villaConfig.maxGuests){key='errorGuests';field=f.adults}}
  errorBox.textContent=key?t(key):'';if(field){field.setAttribute('aria-invalid','true');field.focus();return false}return true
 }
@@ -93,4 +94,4 @@ function updateMonkeyControl(){ monkeyTroupe.updateLabel(); }
 setLanguage(lang);
 // The hero shows the actual villa photograph; no generated foliage overlays it.
 if(villaConfig.mapsDirectionsUrl){$('#map-directions').href=villaConfig.mapsDirectionsUrl;$('#map-directions').hidden=false;$('#map-pending').textContent=t('mapLinkNote')}
-if(villaConfig.mapsEmbedUrl && villaConfig.mapsDirectionsUrl){const frame=document.createElement('iframe');frame.src=villaConfig.mapsEmbedUrl;frame.loading='lazy';frame.referrerPolicy='no-referrer-when-downgrade';frame.title=t('mapHeading');frame.allowFullscreen=true;$('#map-container').append(frame);$('#map-pending').hidden=true}
+if(villaConfig.mapsEmbedUrl && villaConfig.mapsDirectionsUrl){initialisePrivacyMap()}

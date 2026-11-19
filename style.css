@@ -286,3 +286,58 @@ p{text-wrap:pretty}
  header .languages{margin-right:0}
  header>.booking{display:none}
 }
+/* Readable native fonts: Cyrillic, Latin and Spanish without a font CDN. */
+:root{--site-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--ink:#243d32}
+:lang(ru),:lang(en),:lang(es){--site-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{font:400 16px/1.65 var(--site-font);color:var(--ink)}
+h1,h2,h3,.private,.hero-sub,.facts strong,input,textarea,button,.brand span{font-family:var(--site-font)}
+h2{font-size:clamp(29px,3.4vw,46px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
+h3{font-weight:500;letter-spacing:-.015em}
+header nav,.languages button,.solid,.outline,.outline-dark,.gallery-filters button,label>span,.mobile-availability{font-size:14px;font-weight:500}
+header nav{gap:16px;flex-wrap:nowrap;max-width:none}
+.languages button{opacity:1;color:#526052}.languages button[aria-pressed=true]{color:#243d32;border-bottom-width:2px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em}
+.hero h1{font-size:clamp(80px,9vw,132px);font-weight:400;letter-spacing:-.06em}
+.hero:after{background:linear-gradient(90deg,#061c13d9 0%,#061c138c 52%,#061c1333 100%)}
+.hero .hero-sub{font-size:clamp(19px,2vw,25px);max-width:520px}
+.hero .hero-actions .discover{font-size:15px}
+.intro-copy,.story-text>p,.rooms article>p,.experiences p,.stay-scopes p:not(.eyebrow),.section-heading>p,.resort-copy{font-size:17px;line-height:1.7}
+.story-heading p,.story .text-link{font-size:15px}
+.rooms h3,.experiences h3{font-size:25px}
+.experiences h3{min-height:2.4em}
+.facts strong{font-size:32px;font-weight:500}.facts span,.amenities{font-size:13px}
+.small,.contact .small,#form-config-note,.data-note{font-size:14px}
+.intro-copy,.story-text p:not(.eyebrow),.section-heading>p,.rooms article>p,.contact>p:not(.eyebrow),.contact .small{color:#47584c}
+.resort .resort-copy,.resort .experiences p,.resort .stay-scopes p:not(.eyebrow),.resort .small{color:#e0e8de}
+input,textarea{font-size:16px;font-weight:400}
+footer p,.footer-location address,.footer-location .hotel-note{font-size:13px;color:#47584c;line-height:1.6}
+.email{font-size:16px}.copy-email{font-size:14px}
+.legal-links{display:flex;flex-wrap:wrap;gap:12px 24px;width:100%}
+.legal-links button,.policy-link{font:inherit;font-size:14px;text-decoration:underline;background:none;border:0;color:var(--ink);padding:8px 0;display:inline-block}
+.skip-link{position:fixed;left:12px;top:8px;transform:translateY(-160%);z-index:100;background:var(--paper);color:var(--ink);padding:12px 18px;border:2px solid var(--ink)}
+.skip-link:focus{transform:none}
+:focus-visible{outline:3px solid #987044;outline-offset:4px}
+.consent-label{display:flex;align-items:flex-start;gap:12px;margin-top:18px;cursor:pointer}
+.consent-label input{width:20px;height:20px;min-height:20px;flex-shrink:0;margin-top:3px;accent-color:var(--ink)}
+.consent-label span{font-size:14px;font-weight:400;line-height:1.6}
+.map-placeholder{padding:30px;max-width:650px;margin:auto;text-align:center}
+.map-placeholder .solid{margin-top:12px}
+#cookie-banner{position:fixed;bottom:16px;left:16px;right:16px;max-width:850px;margin:auto;z-index:30;background:var(--paper);color:var(--ink);border:1px solid #9b9d8c;box-shadow:0 6px 30px #10221833;padding:20px 24px}
+#cookie-banner h2{font-size:18px;margin:0 0 8px}#cookie-banner p{font-size:14px;margin:0 0 12px;line-height:1.5}
+.cookie-actions{display:flex;flex-wrap:wrap;gap:10px}
+.cookie-actions button{padding:10px 14px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:14px;min-height:44px}
+#policy-dialog{width:min(760px,calc(100% - 28px));max-width:760px;max-height:85svh;overflow:auto;padding:32px;color:var(--ink);font-size:16px}
+#policy-title{font-size:28px;padding-right:20px}#policy-body h3{font-size:20px;margin:28px 0 10px}#policy-body p{font-size:16px;line-height:1.7}
+#policy-body .policy-link{display:block}
+#policy-close{position:absolute;right:10px;top:10px;width:44px;height:44px;border:0;background:none;color:var(--ink);font-size:28px}
+body:has(dialog[open]){overflow:hidden}
+[hidden]{display:none!important}
+@media(max-width:1199px){header nav{max-width:none}header nav.open{display:flex}}
+@media(max-width:700px){
+ header .languages button,#menu-toggle{font-size:12px}.languages button{min-width:24px}header{padding-left:12px;padding-right:12px;gap:6px}
+ .hero h1{font-size:86px}.hero .hero-sub{font-size:20px;max-width:290px}.hero .hero-actions .discover{font-size:14px}
+ .hero:after{background:#061c139e}.hero .eyebrow{font-size:10px}
+ .experiences h3{min-height:0}.gallery-filters button{font-size:13px}.story-text>p{font-size:17px}
+ #cookie-banner{bottom:10px;left:10px;right:10px;padding:16px}.cookie-actions button{font-size:13px}
+ #policy-dialog{padding:24px}.map-placeholder{padding:20px}
+}
