@@ -2,17 +2,17 @@
 let privacyChoice=null;
 try{const saved=JSON.parse(localStorage.getItem('indah-privacy-v1'));if(saved&&typeof saved.map==='boolean')privacyChoice=saved}catch{}
 let activePolicy='',policyFocus;
-function loadConsentedMap(){
+function loadConsentedMap(eager=false){
  const host=document.querySelector('#map-container');
  if(privacyChoice?.map&&!host.querySelector('iframe')&&villaConfig.mapsEmbedUrl){
-  const frame=document.createElement('iframe');frame.src=villaConfig.mapsEmbedUrl;frame.loading='lazy';frame.title=t('mapHeading');frame.referrerPolicy='no-referrer';frame.allowFullscreen=true;
+  const frame=document.createElement('iframe');frame.src=villaConfig.mapsEmbedUrl;frame.loading=eager?'eager':'lazy';frame.title=t('mapHeading');frame.referrerPolicy='no-referrer';frame.allowFullscreen=true;
   host.querySelector('.map-placeholder').hidden=true;host.append(frame);
  }
 }
 function choosePrivacy(map){
  privacyChoice={map};try{localStorage.setItem('indah-privacy-v1',JSON.stringify(privacyChoice))}catch{}
  document.querySelector('#cookie-banner').hidden=true;
- if(map)loadConsentedMap();else{document.querySelector('#map-container iframe')?.remove();document.querySelector('.map-placeholder').hidden=false}
+ if(map)loadConsentedMap(true);else{document.querySelector('#map-container iframe')?.remove();document.querySelector('.map-placeholder').hidden=false}
 }
 function renderPolicy(){
  const title=activePolicy==='privacy'?'privacyTitle':activePolicy==='terms'?'termsTitle':'cookiesTitle';

@@ -28,7 +28,7 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
   const r=targets.at(-1);r.el.dataset.side=(fi<0?ai:fi)%2?'left':'right';if(id==='A2')r.el.classList.add('hanging');if(!anchored)r.el.style.transform=`translate3d(${r.x}px,${r.y}px,0)`;
   if(next===queue.length){clearInterval(timer);timer=0;}
  }
- function enable(){enabled=true;root.hidden=false;updateLabel();timer=setInterval(addNext,7000);if(!mobile()&&!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick);}
+ function enable(){enabled=true;root.hidden=false;updateLabel();addNext();timer=setInterval(addNext,7000);if(!mobile()&&!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick);}
  function tick(time){frame=0;if(!enabled||mobile()||reduced.matches||document.hidden)return;
   const dt=Math.min(.035,(time-(last||time))/1000);last=time;
   history.push({time,...pointer});while(history.length>1&&history[1].time<time-1000)history.shift();
