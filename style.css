@@ -441,3 +441,12 @@ body:has(dialog[open]){overflow:hidden}
  .faq-group>h3{font-size:19px}#faq-entries summary{padding:18px 0;font-size:16px;min-height:60px}
  .faq-actions{gap:12px 20px}
 }
+/* Latest owner copy/layout: no circular frame, white hero mark, compact resort. */
+#monkey-toggle.resident-monkey{border:0;border-radius:0;background:transparent;box-shadow:none}
+#monkey-toggle.resident-monkey img,#monkey-toggle.resident-monkey:hover img,#monkey-toggle.resident-monkey:focus-visible img,#monkey-toggle.resident-monkey.banana-ready img,#monkey-toggle.resident-monkey.drop-target img{outline:0;border:0;border-radius:0;box-shadow:none}
+#monkey-toggle.resident-monkey:focus-visible{outline:2px solid #866e32;outline-offset:2px;border-radius:2px}
+#monkey-toggle.resident-monkey.banana-ready,#monkey-toggle.resident-monkey.drop-target{outline:2px dashed #866e32;outline-offset:2px;border-radius:2px}
+.hero h1.hero-logo{position:relative;width:clamp(280px,36vw,520px);max-width:100%;height:auto;aspect-ratio:5.6;overflow:hidden;margin:12px 0 0;line-height:1;letter-spacing:0}
+.hero-logo img{position:absolute;width:133.33%;max-width:none;height:auto;left:-16.66%;top:-78%;display:block}
+.resort .experiences{margin-top:28px}
+@media(max-width:700px){.hero h1.hero-logo{width:290px;max-width:100%;margin-top:16px}.resort .experiences{margin-top:28px}}

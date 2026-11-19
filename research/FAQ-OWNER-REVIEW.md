@@ -40,3 +40,9 @@ Outside this FAQ, the existing resort card still refers to beach access by lift;
 - Existing booking CTA focuses the check-in field; no invented WhatsApp link or active-form claim.
 - All 22 questions remain available without JavaScript; no FAQPage JSON-LD or analytics added.
 - No JavaScript errors in the checked flows.
+
+## Latest owner confirmations and removals
+
+The subsequent owner instruction supersedes earlier provisional answers: show 4 bathrooms in the facts strip; sun loungers are included; daily villa housekeeping is included; breakfast and airport transfers are extra; payment is 100% of the accommodation price, with no partial advance payments. Linen-change frequency, payment methods/currency and other unspecified operating details remain unconfirmed.
+
+The owner removed Q14, Q17, Q19 and Q21. The current FAQ therefore has 18 questions. This does not delete cancellation/refund terms from the separate booking-terms document. The supplied research remains an unchanged source artifact.

@@ -3,10 +3,10 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
  const base='assets/monkeys/generated/',banana=document.getElementById('monkey-banana'),status=document.getElementById('monkey-instruction');
  const perches=[
   ['P02','#pool-perch','right'],['P03','#lounge-perch','left'],['P04','#garden-perch','right'],
-  ['P05','#bedroom-perch','left'],['P06','#lounge-perch','right','hang'],['P07','#garden-perch','left','hang'],
-  ['P08','#living-perch','right'],['P09','#cinema-perch','right'],['P10','#beach-perch','left'],
+  ['P05','#pool-perch','left'],['P06','#lounge-perch','right','hang'],['P07','#garden-perch','left','hang'],
+  ['P08','#gallery-perch','right'],['P09','#cinema-perch','right'],['P10','#beach-perch','left'],
   ['P11','#restaurant-perch','left'],['P12','#map-container','right'],['P13','#gallery-perch','left'],
-  ['P14','#living-perch','left'],['P15','#enquiry-form','right']
+  ['P14','#restaurant-perch','right'],['P15','#enquiry-form','right']
  ];
  let enabled=false,selected=false,timer=0,next=0,frame=0,last=0,runner=null,drag=null,ignoreClick=false;
  const residents=[],pointer={x:innerWidth*.5,y:innerHeight*.55};
@@ -23,8 +23,8 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
  function headerImage(){toggle.querySelector('img').src=reduced.matches?still('P01'):clip('P01')}
  function stopFrame(){cancelAnimationFrame(frame);frame=0;last=0}
  function runnerMode(){
-  if(!runner)return;const anchored=mobile()||reduced.matches;runner.el.className='macaque '+(anchored?'anchored':'follower');runner.el.dataset.side='left';
-  (anchored?document.querySelector('#pool-perch'):root).append(runner.el);
+  if(!runner)return;const anchored=mobile()||reduced.matches;runner.el.className='macaque '+(anchored?'anchored':'follower');runner.el.dataset.side='right';
+  (anchored?document.querySelector('#lounge-perch'):root).append(runner.el);
   runner.el.src=reduced.matches?'assets/monkeys/new/F1-still.png':'assets/monkeys/new/F1.webp';
   runner.el.style.transform=anchored?'':`translate3d(${runner.x}px,${runner.y}px,0)`;
  }
