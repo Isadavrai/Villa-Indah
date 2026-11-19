@@ -382,3 +382,35 @@ body:has(dialog[open]){overflow:hidden}
 }
 .story #garden-perch{min-width:0}
 .story #garden-perch .garden-photo{width:100%;min-width:0}
+/* Fifteen object-bound residents, with a single opt-in follower. */
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#monkey-banana{position:fixed;z-index:26;left:62px;top:48px;width:32px;height:32px;padding:0;border:0;background:transparent;cursor:grab;touch-action:none;color:var(--ink)}
+#monkey-banana svg{display:block;width:100%;height:100%;filter:drop-shadow(0 1px 2px #0003)}
+#monkey-banana::before{content:'';position:absolute;left:-12px;top:5px;width:14px;border-top:1px dashed #82714b;transform:rotate(-30deg)}
+#monkey-banana.dragging{cursor:grabbing;z-index:50}#monkey-banana.dragging::before{display:none}
+.resident-monkey.banana-ready img,.resident-monkey.drop-target img{outline:2px dashed #866e32;outline-offset:3px;border-radius:50%}
+.perch-object>.macaque.resident{transform:translateY(-96%)}
+.perch-object>.macaque.resident[data-pose=hang]{top:100%;transform:translateY(-3%);height:92px;width:92px}
+#pool-perch{position:relative}#map-container{margin-top:80px}#enquiry-form{margin-top:90px}
+.story-left .story-lounge{margin-bottom:0}
+.story #garden-perch .garden-photo{aspect-ratio:3/4;min-height:0}
+.story .story-lounge>img{object-position:50% 50%}
+.story .garden-photo>img{object-position:50% 50%}
+.experiences{margin-top:76px}
+.experiences h3{font-size:24px}
+#faq-entries summary{font-size:17px;font-weight:500;line-height:1.5}
+#faq-entries details p{font-size:16px;line-height:1.7}
+@media(max-width:700px){
+ #monkey-banana{left:52px;top:48px;width:28px;height:28px}
+ .perch-object>.macaque.resident{width:60px;height:60px}
+ .perch-object>.macaque.resident[data-pose=hang]{width:76px;height:76px}
+ .story-left .story-lounge{margin-bottom:76px}
+ .story #garden-perch{margin-bottom:58px}
+ .story #garden-perch .garden-photo{aspect-ratio:4/5}
+ #map-container{margin-top:72px}#enquiry-form{margin-top:80px}
+ #faq-entries summary{font-size:16px}
+}
+#map-container{border:1px solid #d9d3c5;border-radius:16px;background:#efede5}
+#map-container iframe{display:block}
+#enquiry-form>.macaque.resident{top:32px}
+.perch-object>.macaque.resident[data-monkey=P09]{transform:translateY(-54%)}

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "P01",
+    "action": "breathing-tail",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-b1cda203-9335-4ac0-9dae-11513f11348b.png",
+    "sourceSha256": "cd9251a3c9d236a7bde38b8c92b1aa9700030b7b17cce764e37c78caa56a73b1",
+    "bytes": 59438
+  },
+  {
+    "id": "P02",
+    "action": "head-turn",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-b1cda203-9335-4ac0-9dae-11513f11348b.png",
+    "sourceSha256": "cd9251a3c9d236a7bde38b8c92b1aa9700030b7b17cce764e37c78caa56a73b1",
+    "bytes": 57734
+  },
+  {
+    "id": "P03",
+    "action": "shoulder-scratch",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-b1cda203-9335-4ac0-9dae-11513f11348b.png",
+    "sourceSha256": "cd9251a3c9d236a7bde38b8c92b1aa9700030b7b17cce764e37c78caa56a73b1",
+    "bytes": 58738
+  },
+  {
+    "id": "P04",
+    "action": "forearm-groom",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-b1cda203-9335-4ac0-9dae-11513f11348b.png",
+    "sourceSha256": "cd9251a3c9d236a7bde38b8c92b1aa9700030b7b17cce764e37c78caa56a73b1",
+    "bytes": 58418
+  },
+  {
+    "id": "P05",
+    "action": "yawn",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-b1cda203-9335-4ac0-9dae-11513f11348b.png",
+    "sourceSha256": "cd9251a3c9d236a7bde38b8c92b1aa9700030b7b17cce764e37c78caa56a73b1",
+    "bytes": 56984
+  },
+  {
+    "id": "P06",
+    "action": "two-hand-hang",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-5f2cf066-af56-4e2d-9f02-77d26df1fce9.png",
+    "sourceSha256": "a0cd718f0b1907ce1d7f367086962553cfacf2c926c7165fd187ad4390981634",
+    "bytes": 40758
+  },
+  {
+    "id": "P07",
+    "action": "one-hand-hang",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-5f2cf066-af56-4e2d-9f02-77d26df1fce9.png",
+    "sourceSha256": "a0cd718f0b1907ce1d7f367086962553cfacf2c926c7165fd187ad4390981634",
+    "bytes": 40528
+  },
+  {
+    "id": "P08",
+    "action": "lying-tail",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-5f2cf066-af56-4e2d-9f02-77d26df1fce9.png",
+    "sourceSha256": "a0cd718f0b1907ce1d7f367086962553cfacf2c926c7165fd187ad4390981634",
+    "bytes": 30986
+  },
+  {
+    "id": "P09",
+    "action": "dangling-feet",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-5f2cf066-af56-4e2d-9f02-77d26df1fce9.png",
+    "sourceSha256": "a0cd718f0b1907ce1d7f367086962553cfacf2c926c7165fd187ad4390981634",
+    "bytes": 49188
+  },
+  {
+    "id": "P10",
+    "action": "sleeping",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-5f2cf066-af56-4e2d-9f02-77d26df1fce9.png",
+    "sourceSha256": "a0cd718f0b1907ce1d7f367086962553cfacf2c926c7165fd187ad4390981634",
+    "bytes": 59620
+  },
+  {
+    "id": "P11",
+    "action": "arm-stretch",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-43ba7f65-2106-4e4f-8cec-eebf237fe7f7.png",
+    "sourceSha256": "30b5089fd3862f2e22f04680bbf7635e23291b4a3d807f7a26692d7d002dff3f",
+    "bytes": 52558
+  },
+  {
+    "id": "P12",
+    "action": "chest-groom",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-43ba7f65-2106-4e4f-8cec-eebf237fe7f7.png",
+    "sourceSha256": "30b5089fd3862f2e22f04680bbf7635e23291b4a3d807f7a26692d7d002dff3f",
+    "bytes": 61134
+  },
+  {
+    "id": "P13",
+    "action": "side-look",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-43ba7f65-2106-4e4f-8cec-eebf237fe7f7.png",
+    "sourceSha256": "30b5089fd3862f2e22f04680bbf7635e23291b4a3d807f7a26692d7d002dff3f",
+    "bytes": 59972
+  },
+  {
+    "id": "P14",
+    "action": "reclining",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-43ba7f65-2106-4e4f-8cec-eebf237fe7f7.png",
+    "sourceSha256": "30b5089fd3862f2e22f04680bbf7635e23291b4a3d807f7a26692d7d002dff3f",
+    "bytes": 49318
+  },
+  {
+    "id": "P15",
+    "action": "face-rub",
+    "frames": 6,
+    "durationMs": 1620,
+    "source": "exec-43ba7f65-2106-4e4f-8cec-eebf237fe7f7.png",
+    "sourceSha256": "30b5089fd3862f2e22f04680bbf7635e23291b4a3d807f7a26692d7d002dff3f",
+    "bytes": 59836
+  }
+]
