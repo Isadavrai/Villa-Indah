@@ -229,3 +229,7 @@ Object.assign(copy.es,{"intro": "Toda la villa a vuestra disposición: cuatro do
 legalContent.ru.terms[1][1]="Для подтверждения бронирования требуется полная оплата стоимости проживания — 100%. Частичная предоплата не предусмотрена. Порядок оплаты и условия отмены и возврата направляются по email до оплаты. Подтверждение проживания оформляется ваучером отеля.";
 legalContent.en.terms[1][1]="Full payment of the accommodation price — 100% — is required to confirm the booking. Partial advance payments are not offered. Payment instructions and cancellation and refund terms are provided by email before payment. A hotel voucher confirms the stay.";
 legalContent.es.terms[1][1]="Para confirmar la reserva se requiere el pago completo del alojamiento: el 100%. No se aceptan anticipos parciales. Las instrucciones de pago y las condiciones de cancelación y reembolso se envían por email antes del pago. El bono del hotel confirma la estancia.";
+
+Object.assign(copy.ru,{slow:'Как пройдут ваши дни?'});
+Object.assign(copy.en,{slow:'What will your days look like?'});
+Object.assign(copy.es,{slow:'¿Cómo serán vuestros días?'});
