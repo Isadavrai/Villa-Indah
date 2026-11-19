@@ -1,6 +1,7 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 let lang='ru';try{lang=localStorage.getItem('indah-language')||'ru'}catch{}if(!copy[lang])lang='ru';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let faqExpanded=false;
 let filter='Master Bedroom',expanded=false,visiblePhotos=[],currentPhoto=0,lastGalleryFocus;
 const lightbox=$('#lightbox'),form=$('#enquiry-form'),errorBox=$('#form-error');
 function t(key){return copy[lang][key]||key}
@@ -96,4 +97,23 @@ setLanguage(lang);
 if(villaConfig.mapsDirectionsUrl){$('#map-directions').href=villaConfig.mapsDirectionsUrl;$('#map-directions').hidden=false;$('#map-pending').textContent=t('mapLinkNote')}
 if(villaConfig.mapsEmbedUrl && villaConfig.mapsDirectionsUrl){initialisePrivacyMap()}
 
-function renderFaq(){const host=$('#faq-entries');host.replaceChildren();for(const [question,answer] of faqEntries[lang]){const d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('p');s.textContent=question;p.textContent=answer;d.append(s,p);host.append(d)}}
+function renderFaq(){
+ const host=$('#faq-entries'),openId=host.querySelector('details[open]')?.dataset.faqId;
+ host.replaceChildren();
+ function appendGroup(id,title,entries){
+  const group=document.createElement('section'),heading=document.createElement('h3');
+  group.className='faq-group';heading.id='faq-group-'+id;heading.textContent=title;group.setAttribute('aria-labelledby',heading.id);group.append(heading);
+  for(const entry of entries){
+   const detail=document.createElement('details'),summary=document.createElement('summary'),answer=document.createElement('p');
+   detail.name='villa-faq';detail.dataset.faqId=entry.id;summary.textContent=entry.question;answer.textContent=entry.answer;detail.append(summary,answer);
+   detail.addEventListener('toggle',()=>{if(detail.open)host.querySelectorAll('details[open]').forEach(other=>{if(other!==detail)other.open=false})});
+   if(entry.id===openId)detail.open=true;group.append(detail);
+  }
+  host.append(group);
+ }
+ const entries=faqContent[lang];
+ if(faqExpanded){for(const [category,title] of Object.entries(faqUi[lang].categories))appendGroup(category,title,entries.filter(entry=>entry.category===category))}
+ else appendGroup('essential',t('faqTop'),faqPreviewIds.map(id=>entries.find(entry=>entry.id===id)));
+ const button=$('#faq-expand');button.hidden=false;button.setAttribute('aria-expanded',String(faqExpanded));button.textContent=t(faqExpanded?'faqLess':'faqAll');
+}
+$('#faq-expand').addEventListener('click',()=>{faqExpanded=!faqExpanded;renderFaq();$('#faq-entries summary')?.focus({preventScroll:true});$('#faq-heading').scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'})});

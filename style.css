@@ -414,3 +414,30 @@ body:has(dialog[open]){overflow:hidden}
 #map-container iframe{display:block}
 #enquiry-form>.macaque.resident{top:32px}
 .perch-object>.macaque.resident[data-monkey=P09]{transform:translateY(-54%)}
+/* Owner-researched FAQ: eight essentials, then twenty-two grouped questions. */
+.faq{max-width:1440px;padding:90px 8%;margin:0 auto}
+.faq-layout{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:7%;align-items:start}
+.faq-intro{position:sticky;top:120px;min-width:0}
+.faq-intro h2{font-size:clamp(30px,3vw,44px);margin:18px 0 20px;text-wrap:balance}
+.faq-intro>p:not(.eyebrow){color:#47584c;font-size:16px;max-width:330px;line-height:1.7}
+.faq-content{min-width:0}
+.faq-group{padding:0;margin:0 0 36px}
+.faq-group>h3{font-size:20px;font-weight:500;margin:0 0 12px}
+#faq-entries details{margin:0;padding:0;border-bottom:1px solid #d9d3c5}
+#faq-entries summary{padding:18px 2px;font-size:16px;line-height:1.55;min-height:60px;cursor:pointer;overflow-wrap:anywhere}
+#faq-entries details p{margin:0;padding:0 2px 20px;font-size:15px;line-height:1.75;color:#47584c}
+#faq-entries details[open] summary{font-weight:600}
+#faq-expand{font-size:14px;min-height:44px;padding:12px 18px}
+.faq-contact{border-top:1px solid #d9d3c5;margin-top:36px;padding-top:24px}
+.faq-contact h3{font-size:22px;margin:0 0 12px}
+.faq-contact>p{font-size:15px;line-height:1.7;color:#47584c}
+.faq-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px}
+.faq-actions .solid,.faq-actions .text-link{margin:0;font-size:14px;min-height:44px}
+.faq-actions .text-link{display:inline-flex;align-items:center}
+.legal-links>a{padding:8px 0;font-size:14px;text-decoration:underline}
+@media(max-width:700px){
+ .faq{padding:64px 24px}.faq-layout{grid-template-columns:minmax(0,1fr);gap:28px}
+ .faq-intro{position:static}.faq-intro h2{font-size:32px}.faq-intro>p:not(.eyebrow){max-width:none}
+ .faq-group>h3{font-size:19px}#faq-entries summary{padding:18px 0;font-size:16px;min-height:60px}
+ .faq-actions{gap:12px 20px}
+}

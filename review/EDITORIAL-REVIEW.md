@@ -11,7 +11,7 @@ Not published. Branch: villa-editorial-monkey-troupe.
 - Story photographs now show two real villa/pool views (Private Swimming Pool/05 and /02). Gallery grouping is unchanged.
 - Removed the two-column private/shared overview and the amenities strip as requested.
 - Restaurant names, reception wording, additional-services note, bedroom/living descriptions and concise booking terms updated in RU/EN/ES.
-- FAQ now has 10 practical questions with known facts and explicit pre-booking confirmation where property-specific rules were not provided. It does not duplicate the capacity figure or call the pool «приватный».
+- FAQ now has 22 structured, translated questions in five categories, adapted from the owner-supplied review of 27 websites. Eight essentials appear first. The repeated capacity question was replaced with Wi-Fi, and the pool is not called «приватный».
 
 ## Validation
 
@@ -19,11 +19,11 @@ Not published. Branch: villa-editorial-monkey-troupe.
 - One immediate follower, first resident at 7 seconds, maximum 14 additional residents + header, no extra spawning, reset verified.
 - All 15 WebP files decoded; each contains 6 unique frames. All posters exist. All 14 additional WebP clips loaded during viewport traversal; the header uses the 15th.
 - Actual reduced-motion change switches active header/follower to posters. Starting with reduced motion leaves all 16 characters static and no pointer follower.
-- RU/EN/ES at widths 375, 390, 768, 1024 and 1440: no horizontal overflow, 10 FAQ entries in every language, no missing translation keys.
+- RU/EN/ES at widths 375, 390, 768, 1024 and 1440: no horizontal overflow, eight-question preview and 22 full FAQ entries in five categories in every language, no missing translation keys.
 - No JavaScript errors or failed same-origin requests in tested flows.
 
 ## Remaining blocker
 
-The required analysis of 20–30 rental websites is not complete. External requests still return proxy 403. research/FAQ-RESEARCH.md lists 25 candidate services and the factual limits of the current FAQ. No claim is made that these sources or real guest questions have been analysed. Recheck access after the environment owner applies network settings, then complete the source matrix and refine the FAQ if needed.
+The owner supplied a qualitative review of 27 websites in research/Villa_Indah_FAQ_Research_Codex.md. The new FAQ uses that research; no claim is made that Codex independently visited those sources. See research/FAQ-OWNER-REVIEW.md for operational facts still requiring owner/resort confirmation.
 
 Specific property terms remain unconfirmed: check-in/out, early/late access, housekeeping schedule, breakfast, child equipment, pets, smoking/events/visitors, payment/cancellation/refund terms and transfer price. The site asks guests to confirm them instead of inventing policies.
