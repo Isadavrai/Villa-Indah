@@ -1,0 +1,57 @@
+name: Villa Indah Premium — downloadable RU + EN
+on:
+  push:
+    branches: ['codex/premium-reels-delivery-20261122']
+    paths: ['scripts/premium-reels/**', '.github/workflows/premium-reels-delivery.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-verify-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-noto-core
+          python -m pip install numpy Pillow opencv-python-headless scipy
+      - name: Render both final MP4s
+        run: python -u scripts/premium-reels/build.py --repo . --out dist/reels
+      - name: Decode and verify both videos
+        run: python -u scripts/premium-reels/verify.py --repo . --out dist/reels
+      - name: Package previews and reproducible sources
+        run: python scripts/premium-reels/package_delivery.py
+      - name: Upload Russian video
+        uses: actions/upload-artifact@v4
+        with:
+          name: Villa_Indah_Premium_RU
+          path: dist/reels/Villa_Indah_Premium_RU.mp4
+          compression-level: 0
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload English video
+        uses: actions/upload-artifact@v4
+        with:
+          name: Villa_Indah_Premium_EN
+          path: dist/reels/Villa_Indah_Premium_EN.mp4
+          compression-level: 0
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload production kit
+        uses: actions/upload-artifact@v4
+        with:
+          name: Villa_Indah_Production_Kit
+          path: |
+            dist/reels/Villa_Indah_Production_Kit.zip
+            dist/reels/*Preview*.jpg
+            dist/reels/*Contact*.jpg
+            dist/reels/*.txt
+            dist/reels/*.json
+          compression-level: 0
+          retention-days: 90
+          if-no-files-found: error
