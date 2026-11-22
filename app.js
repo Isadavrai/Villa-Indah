@@ -5,7 +5,7 @@ let faqExpanded=false,formStatusKey='',enquirySending=false,bookingFormStarted=f
 let filter='Master Bedroom',expanded=false,visiblePhotos=[],currentPhoto=0,lastGalleryFocus;
 const lightbox=$('#lightbox'),form=$('#enquiry-form'),errorBox=$('#form-error');
 function t(key){return copy[lang][key]||key}
-function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();renderFaq();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';updateMonkeyControl();updatePrivacyLanguage();if(formStatusKey)$('#form-status').textContent=t(formStatusKey);try{localStorage.setItem('indah-language',lang)}catch{}}
+function setLanguage(value){lang=copy[value]?value:'ru';document.documentElement.lang=lang;$$('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));$$('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));document.title='Private Villa Indah · '+({ru:'Улувату, Бали',en:'Uluwatu, Bali',es:'Uluwatu, Bali'}[lang]);$('meta[name=description]').content=copy[lang].intro;$$('[data-alt]').forEach(img=>{img.alt=copy[lang][img.dataset.alt]||roomIdLabel(lang,img.dataset.room)});renderFilters();renderGallery();renderFaq();renderPhoneCountries();if(villaConfig.mapsDirectionsUrl&&!villaConfig.mapsEmbedUrl)$('#map-pending').textContent=t('mapLinkNote');if($('#map-container iframe'))$('#map-container iframe').title=t('mapHeading');if(lightbox.open)showPhoto(currentPhoto);errorBox.textContent='';updateMonkeyControl();updatePrivacyLanguage();if(formStatusKey)$('#form-status').textContent=t(formStatusKey);try{localStorage.setItem('indah-language',lang)}catch{}}
 $$('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));
 $('#year').textContent=new Date().getFullYear();
 // Navigation, with native links remaining usable without JavaScript.
@@ -62,7 +62,7 @@ function nextDay(value){if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return '';const [y
 function syncDateLimits(){form.elements.checkin.min=baliToday();form.elements.checkout.min=nextDay(form.elements.checkin.value||baliToday())}syncDateLimits();form.elements.checkin.addEventListener('input',syncDateLimits);
 function validateEnquiry(){
  const f=form.elements;$$('#enquiry-form [aria-invalid]').forEach(e=>e.removeAttribute('aria-invalid'));
- let key='',field;const name=f.name.value.trim(),email=f.email.value.trim(),phone=f.phone.value.replace(/[\s().-]/g,'');
+ let key='',field;const name=f.name.value.trim(),email=f.email.value.trim(),phone=enquiryPhone();
  if(!name){key='errorName';field=f.name}
  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){key='errorEmail';field=f.email}
  else if(phone&&!/^\+[1-9]\d{7,14}$/.test(phone)){key='errorPhone';field=f.phone}
@@ -82,7 +82,7 @@ form.addEventListener('submit',async e=>{
  e.preventDefault();if(enquirySending||!villaConfig.formEndpoint||form.elements._gotcha.value.trim())return;
  setEnquiryStatus('');if(!validateEnquiry())return;
  enquirySending=true;submit.disabled=true;form.setAttribute('aria-busy','true');setEnquiryStatus('formSending');
- const data=new FormData(form);data.set('language',lang);
+ const data=new FormData(form);data.set('language',lang);data.set('phone',enquiryPhone());
  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),30000);
  try{
   const response=await fetch(villaConfig.formEndpoint,{method:'POST',body:data,headers:{Accept:'application/json'},signal:controller.signal});

@@ -1,4 +1,4 @@
-// Owner-confirmed FAQ updates, 19 November 2026.
+// Owner-approved questions.
 const faqContent={
   "ru": [
     {
@@ -6,13 +6,6 @@ const faqContent={
       "category": "villa",
       "question": "Villa Indah — отдельная вилла или часть отеля?",
       "answer": "Villa Indah — отдельная вилла на территории курорта Karma Kandara. Вы проживаете в собственном доме с бассейном и имеете доступ к общим зонам курорта.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q02",
-      "category": "villa",
-      "question": "Будем ли мы делить виллу с другими гостями?",
-      "answer": "Нет. Вилла целиком предоставляется вашей компании. Рестораны, пляж и другие общие зоны Karma Kandara находятся за пределами вашей собственной территории.",
       "needsConfirmation": false
     },
     {
@@ -30,31 +23,10 @@ const faqContent={
       "needsConfirmation": false
     },
     {
-      "id": "q05",
-      "category": "villa",
-      "question": "Чем проживание на вилле отличается от номера в отеле?",
-      "answer": "В вашем распоряжении целый дом: отдельные спальни, гостиная, оборудованная кухня, террасы и собственный бассейн. При этом вы находитесь на территории Karma Kandara.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q06",
-      "category": "resort",
-      "question": "Какими услугами Karma Kandara можно пользоваться?",
-      "answer": "На территории курорта работают рестораны, спа, бассейны и Karma Beach. Условия доступа, предварительная запись и оплата зависят от выбранной услуги. Перед бронированием уточните список включённых услуг на ваши даты.",
-      "needsConfirmation": true
-    },
-    {
       "id": "q07",
       "category": "resort",
       "question": "Включён ли доступ к пляжу?",
       "answer": "Доступ к пляжу входит в условия проживания. Еда, напитки и отдельные услуги пляжного клуба оплачиваются дополнительно.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q08",
-      "category": "resort",
-      "question": "Входят ли лежаки и услуги пляжного клуба в стоимость?",
-      "answer": "Лежаки оплачиваются отдельно отелю, как и дополнительные услуги пляжного клуба.",
       "needsConfirmation": false
     },
     {
@@ -100,32 +72,11 @@ const faqContent={
       "needsConfirmation": true
     },
     {
-      "id": "q16",
-      "category": "booking",
-      "question": "Стоимость рассчитывается за всю виллу или за комнату?",
-      "answer": "Villa Indah и её территория предоставляются целиком.",
-      "needsConfirmation": false
-    },
-    {
       "id": "q18",
       "category": "booking",
       "question": "Нужна ли предоплата и как оплатить проживание?",
-      "answer": "Для подтверждения бронирования требуется полная оплата стоимости проживания — 100%. Частичная предоплата не предусмотрена. Порядок оплаты и реквизиты направляются в письменном подтверждении.",
+      "answer": "Для подтверждения бронирования требуется полная оплата стоимости проживания — 100%. Порядок оплаты и реквизиты направляются в письменном подтверждении.",
       "needsConfirmation": false
-    },
-    {
-      "id": "q20",
-      "category": "rules",
-      "question": "Что учесть при поездке с детьми?",
-      "answer": "Укажите количество взрослых и детей в запросе. Наличие детского оснащения, подходящее размещение и ограничения курорта уточните заранее. У бассейна, на пляже и рядом с утёсами детям необходим присмотр взрослых.",
-      "needsConfirmation": true
-    },
-    {
-      "id": "q22",
-      "category": "rules",
-      "question": "Можно ли с питомцами и разрешено ли курение?",
-      "answer": "Правила для питомцев и курения необходимо уточнить до бронирования. Ограничения могут различаться для самой виллы и общих зон Karma Kandara.",
-      "needsConfirmation": true
     }
   ],
   "en": [
@@ -134,13 +85,6 @@ const faqContent={
       "category": "villa",
       "question": "Is Villa Indah a separate villa or part of the hotel?",
       "answer": "Villa Indah is a separate villa within the Karma Kandara resort grounds. You have your own home and pool, with access to the resort’s shared areas.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q02",
-      "category": "villa",
-      "question": "Will we share the villa with other guests?",
-      "answer": "No. The whole villa is reserved for your group. Restaurants, the beach and other shared Karma Kandara areas are separate from your own villa grounds.",
       "needsConfirmation": false
     },
     {
@@ -158,31 +102,10 @@ const faqContent={
       "needsConfirmation": false
     },
     {
-      "id": "q05",
-      "category": "villa",
-      "question": "How does a villa stay differ from a hotel room?",
-      "answer": "You have an entire home with separate bedrooms, a living room, equipped kitchen, terraces and your own pool, while staying within the Karma Kandara grounds.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q06",
-      "category": "resort",
-      "question": "Which Karma Kandara facilities can guests use?",
-      "answer": "The resort has restaurants, a spa, pools and Karma Beach. Access conditions, reservations and charges depend on the facility. Confirm the current list of inclusions for your dates before booking.",
-      "needsConfirmation": true
-    },
-    {
       "id": "q07",
       "category": "resort",
       "question": "Is beach access included?",
       "answer": "Beach access is included in your stay. Food, drinks and certain beach club services are charged separately.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q08",
-      "category": "resort",
-      "question": "Are loungers and beach club services included?",
-      "answer": "Sun loungers and additional beach club services are charged separately by the hotel.",
       "needsConfirmation": false
     },
     {
@@ -228,32 +151,11 @@ const faqContent={
       "needsConfirmation": true
     },
     {
-      "id": "q16",
-      "category": "booking",
-      "question": "Is the price for the whole villa or one room?",
-      "answer": "Villa Indah and its grounds are reserved entirely for your group.",
-      "needsConfirmation": false
-    },
-    {
       "id": "q18",
       "category": "booking",
       "question": "Is advance payment required and how can I pay?",
-      "answer": "Full payment of the accommodation price — 100% — is required to confirm the booking. Partial advance payments are not offered. Payment instructions and details are provided in writing.",
+      "answer": "Full payment of the accommodation price — 100% — is required to confirm the booking. Payment instructions and details are provided in writing.",
       "needsConfirmation": false
-    },
-    {
-      "id": "q20",
-      "category": "rules",
-      "question": "What should families travelling with children know?",
-      "answer": "Include the number of adults and children in your enquiry. Check child equipment, sleeping arrangements and resort restrictions in advance. Children need adult supervision around pools, the beach and cliffs.",
-      "needsConfirmation": true
-    },
-    {
-      "id": "q22",
-      "category": "rules",
-      "question": "Are pets and smoking allowed?",
-      "answer": "Check the pet and smoking policies before booking. Rules may differ between the villa and shared Karma Kandara areas.",
-      "needsConfirmation": true
     }
   ],
   "es": [
@@ -262,13 +164,6 @@ const faqContent={
       "category": "villa",
       "question": "¿Villa Indah es independiente o forma parte del hotel?",
       "answer": "Villa Indah es una villa independiente dentro del recinto de Karma Kandara. Disponéis de vuestra propia casa y piscina, con acceso a las zonas comunes del resort.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q02",
-      "category": "villa",
-      "question": "¿Compartiremos la villa con otros huéspedes?",
-      "answer": "No. Toda la villa se reserva para vuestro grupo. Los restaurantes, la playa y otras zonas comunes de Karma Kandara están separados del recinto de la villa.",
       "needsConfirmation": false
     },
     {
@@ -286,31 +181,10 @@ const faqContent={
       "needsConfirmation": false
     },
     {
-      "id": "q05",
-      "category": "villa",
-      "question": "¿En qué se diferencia de una habitación de hotel?",
-      "answer": "Disponéis de una casa completa con dormitorios separados, salón, cocina equipada, terrazas y piscina propia, dentro del recinto de Karma Kandara.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q06",
-      "category": "resort",
-      "question": "¿Qué instalaciones de Karma Kandara podemos utilizar?",
-      "answer": "El resort cuenta con restaurantes, spa, piscinas y Karma Beach. El acceso, las reservas y los cargos dependen de cada instalación. Confirmad los servicios incluidos para vuestras fechas antes de reservar.",
-      "needsConfirmation": true
-    },
-    {
       "id": "q07",
       "category": "resort",
       "question": "¿Está incluido el acceso a la playa?",
       "answer": "El acceso a la playa está incluido en la estancia. La comida, las bebidas y determinados servicios del club de playa se pagan aparte.",
-      "needsConfirmation": false
-    },
-    {
-      "id": "q08",
-      "category": "resort",
-      "question": "¿Están incluidas las tumbonas y los servicios del club de playa?",
-      "answer": "Las tumbonas y los servicios adicionales del club de playa se pagan por separado al hotel.",
       "needsConfirmation": false
     },
     {
@@ -356,32 +230,11 @@ const faqContent={
       "needsConfirmation": true
     },
     {
-      "id": "q16",
-      "category": "booking",
-      "question": "¿El precio es por toda la villa o por habitación?",
-      "answer": "Villa Indah y todo su recinto se reservan íntegramente para vuestro grupo.",
-      "needsConfirmation": false
-    },
-    {
       "id": "q18",
       "category": "booking",
       "question": "¿Se necesita anticipo y cómo podemos pagar?",
-      "answer": "Para confirmar la reserva se requiere el pago completo del alojamiento: el 100%. No se aceptan anticipos parciales. Las instrucciones y los datos de pago se facilitan por escrito.",
+      "answer": "Para confirmar la reserva se requiere el pago completo del alojamiento: el 100%. Las instrucciones y los datos de pago se facilitan por escrito.",
       "needsConfirmation": false
-    },
-    {
-      "id": "q20",
-      "category": "rules",
-      "question": "¿Qué debemos tener en cuenta si viajamos con niños?",
-      "answer": "Indicad cuántos adultos y niños vienen. Consultad antes el equipamiento infantil, las camas y las restricciones del resort. Los menores necesitan supervisión adulta junto a piscinas, playa y acantilados.",
-      "needsConfirmation": true
-    },
-    {
-      "id": "q22",
-      "category": "rules",
-      "question": "¿Se permiten mascotas y fumar?",
-      "answer": "Consultad las normas sobre mascotas y tabaco antes de reservar. Pueden ser distintas para la villa y las zonas comunes de Karma Kandara.",
-      "needsConfirmation": true
     }
   ]
 };
@@ -391,7 +244,7 @@ const faqUi={
     "faqTitle": "Частые вопросы",
     "faqDescription": "О вилле, услугах курорта и условиях бронирования.",
     "faqTop": "Основные вопросы",
-    "faqAll": "Все 18 вопросов",
+    "faqAll": "Все 11 вопросов",
     "faqLess": "Показать основные вопросы",
     "faqOtherTitle": "Остались вопросы?",
     "faqOtherCopy": "Напишите нам, чтобы уточнить условия и доступность на ваши даты.",
@@ -401,8 +254,7 @@ const faqUi={
       "villa": "Вилла",
       "resort": "Курорт и пляж",
       "stay": "Услуги и заезд",
-      "booking": "Бронирование и оплата",
-      "rules": "Правила проживания"
+      "booking": "Бронирование и оплата"
     }
   },
   "en": {
@@ -410,7 +262,7 @@ const faqUi={
     "faqTitle": "Frequently asked questions",
     "faqDescription": "About the villa, resort facilities and booking terms.",
     "faqTop": "Essential questions",
-    "faqAll": "View all 18 questions",
+    "faqAll": "View all 11 questions",
     "faqLess": "Show essential questions",
     "faqOtherTitle": "Have another question?",
     "faqOtherCopy": "Contact us to discuss the details and availability for your dates.",
@@ -420,8 +272,7 @@ const faqUi={
       "villa": "The villa",
       "resort": "Resort & beach",
       "stay": "Services & arrival",
-      "booking": "Booking & payment",
-      "rules": "House rules"
+      "booking": "Booking & payment"
     }
   },
   "es": {
@@ -429,7 +280,7 @@ const faqUi={
     "faqTitle": "Preguntas frecuentes",
     "faqDescription": "Sobre la villa, los servicios del resort y las condiciones de reserva.",
     "faqTop": "Preguntas principales",
-    "faqAll": "Ver las 18 preguntas",
+    "faqAll": "Ver las 11 preguntas",
     "faqLess": "Ver preguntas principales",
     "faqOtherTitle": "¿Tenéis otra pregunta?",
     "faqOtherCopy": "Contactad para consultar los detalles y la disponibilidad para vuestras fechas.",
@@ -439,10 +290,9 @@ const faqUi={
       "villa": "La villa",
       "resort": "Resort y playa",
       "stay": "Servicios y llegada",
-      "booking": "Reserva y pago",
-      "rules": "Normas de la estancia"
+      "booking": "Reserva y pago"
     }
   }
 };
-const faqPreviewIds=["q01", "q02", "q04", "q06", "q07", "q08", "q15", "q18"];
+const faqPreviewIds=["q01", "q04", "q07", "q15", "q18", "q03", "q11", "q13"];
 for(const [language,ui] of Object.entries(faqUi)){const {categories,...labels}=ui;Object.assign(copy[language],labels)}
