@@ -3,6 +3,15 @@
   "generator": "scripts/build_telegram_collages.py",
   "files": [
     {
+      "path": "ru/overview.jpg",
+      "photos": [
+        "Private Swimming Pool/03.webp",
+        "Resort Facilities/02.webp",
+        "Living room/01.webp",
+        "Beach/02.webp"
+      ]
+    },
+    {
       "path": "ru/private_pool.jpg",
       "photos": [
         "Private Swimming Pool/03.webp",
@@ -89,6 +98,15 @@
         "Resort Facilities/02.webp",
         "Resort Facilities/03.webp",
         "Resort Facilities/04.webp",
+        "Beach/02.webp"
+      ]
+    },
+    {
+      "path": "en/overview.jpg",
+      "photos": [
+        "Private Swimming Pool/03.webp",
+        "Resort Facilities/02.webp",
+        "Living room/01.webp",
         "Beach/02.webp"
       ]
     },
