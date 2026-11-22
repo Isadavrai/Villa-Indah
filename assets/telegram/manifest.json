@@ -1,0 +1,186 @@
+{
+  "source": "assets/photos-new",
+  "generator": "scripts/build_telegram_collages.py",
+  "files": [
+    {
+      "path": "ru/private_pool.jpg",
+      "photos": [
+        "Private Swimming Pool/03.webp",
+        "Private Swimming Pool/01.webp",
+        "Private Swimming Pool/04.webp",
+        "Outdoor lounge Area/01.webp"
+      ]
+    },
+    {
+      "path": "ru/beach.jpg",
+      "photos": [
+        "Beach/02.webp",
+        "Beach/01.webp",
+        "Beach/04.webp",
+        "Beach/03.webp"
+      ]
+    },
+    {
+      "path": "ru/grounds.jpg",
+      "photos": [
+        "Villa Grounds/02.webp",
+        "Villa Grounds/01.webp",
+        "Outdoor lounge Area/02.webp",
+        "Private Swimming Pool/03.webp"
+      ]
+    },
+    {
+      "path": "ru/master.jpg",
+      "photos": [
+        "Master Bedroom/02.webp",
+        "Master Bedroom/01.webp",
+        "Master Bedroom/03.webp",
+        "Master Bedroom/04.webp"
+      ]
+    },
+    {
+      "path": "ru/terrace.jpg",
+      "photos": [
+        "Terrace bedroom/01.webp",
+        "Terrace bedroom/02.webp",
+        "Terrace bedroom/03.webp",
+        "Terrace bedroom/04.webp"
+      ]
+    },
+    {
+      "path": "ru/twin.jpg",
+      "photos": [
+        "Twin Bedroom/01.webp",
+        "Twin Bedroom/02.webp",
+        "Twin Bedroom/03.webp",
+        "Villa Grounds/01.webp"
+      ]
+    },
+    {
+      "path": "ru/pool_view.jpg",
+      "photos": [
+        "Pool View Bedroom/01.webp",
+        "Pool View Bedroom/03.webp",
+        "Pool View Bedroom/04.webp",
+        "Pool View Bedroom/05.webp"
+      ]
+    },
+    {
+      "path": "ru/living.jpg",
+      "photos": [
+        "Living room/01.webp",
+        "Living room/02.webp",
+        "Living room/04.webp",
+        "Living room/05.webp"
+      ]
+    },
+    {
+      "path": "ru/lounge.jpg",
+      "photos": [
+        "Outdoor lounge Area/01.webp",
+        "Outdoor lounge Area/02.webp",
+        "Private Swimming Pool/06.webp",
+        "Villa Grounds/01.webp"
+      ]
+    },
+    {
+      "path": "ru/resort_experiences.jpg",
+      "photos": [
+        "Resort Facilities/02.webp",
+        "Resort Facilities/03.webp",
+        "Resort Facilities/04.webp",
+        "Beach/02.webp"
+      ]
+    },
+    {
+      "path": "en/private_pool.jpg",
+      "photos": [
+        "Private Swimming Pool/03.webp",
+        "Private Swimming Pool/01.webp",
+        "Private Swimming Pool/04.webp",
+        "Outdoor lounge Area/01.webp"
+      ]
+    },
+    {
+      "path": "en/beach.jpg",
+      "photos": [
+        "Beach/02.webp",
+        "Beach/01.webp",
+        "Beach/04.webp",
+        "Beach/03.webp"
+      ]
+    },
+    {
+      "path": "en/grounds.jpg",
+      "photos": [
+        "Villa Grounds/02.webp",
+        "Villa Grounds/01.webp",
+        "Outdoor lounge Area/02.webp",
+        "Private Swimming Pool/03.webp"
+      ]
+    },
+    {
+      "path": "en/master.jpg",
+      "photos": [
+        "Master Bedroom/02.webp",
+        "Master Bedroom/01.webp",
+        "Master Bedroom/03.webp",
+        "Master Bedroom/04.webp"
+      ]
+    },
+    {
+      "path": "en/terrace.jpg",
+      "photos": [
+        "Terrace bedroom/01.webp",
+        "Terrace bedroom/02.webp",
+        "Terrace bedroom/03.webp",
+        "Terrace bedroom/04.webp"
+      ]
+    },
+    {
+      "path": "en/twin.jpg",
+      "photos": [
+        "Twin Bedroom/01.webp",
+        "Twin Bedroom/02.webp",
+        "Twin Bedroom/03.webp",
+        "Villa Grounds/01.webp"
+      ]
+    },
+    {
+      "path": "en/pool_view.jpg",
+      "photos": [
+        "Pool View Bedroom/01.webp",
+        "Pool View Bedroom/03.webp",
+        "Pool View Bedroom/04.webp",
+        "Pool View Bedroom/05.webp"
+      ]
+    },
+    {
+      "path": "en/living.jpg",
+      "photos": [
+        "Living room/01.webp",
+        "Living room/02.webp",
+        "Living room/04.webp",
+        "Living room/05.webp"
+      ]
+    },
+    {
+      "path": "en/lounge.jpg",
+      "photos": [
+        "Outdoor lounge Area/01.webp",
+        "Outdoor lounge Area/02.webp",
+        "Private Swimming Pool/06.webp",
+        "Villa Grounds/01.webp"
+      ]
+    },
+    {
+      "path": "en/resort_experiences.jpg",
+      "photos": [
+        "Resort Facilities/02.webp",
+        "Resort Facilities/03.webp",
+        "Resort Facilities/04.webp",
+        "Beach/02.webp"
+      ]
+    }
+  ]
+}
