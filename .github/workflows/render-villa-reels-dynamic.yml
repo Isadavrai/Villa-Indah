@@ -1,0 +1,54 @@
+name: Villa Indah - Dynamic Reels RU EN (Ready for Instagram)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/render_villa_reels_dynamic.py'
+      - '.github/workflows/render-villa-reels-dynamic.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: villa-indah-reels-dynamic
+  cancel-in-progress: false
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install free video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python -m pip install --disable-pip-version-check 'Pillow>=11,<13' 'numpy>=1.26,<3'
+      - name: Check source and photo licenses
+        run: |
+          python -m py_compile scripts/render_villa_reels_dynamic.py
+          test -f 'assets/photos-new/Private Swimming Pool/03.webp'
+          test -f 'assets/photos-new/Master Bedroom/01.webp'
+          test -f 'assets/photos-new/Beach/01.webp'
+      - name: Render bilingual dynamic video from actual photo library
+        run: python -u scripts/render_villa_reels_dynamic.py
+      - name: Verify both Instagram MP4 files
+        run: |
+          for file in dist/villa-reels-premium/*.mp4; do
+            test -s "$file"
+            ffprobe -v error -show_entries stream=codec_name,width,height -show_entries format=duration,size -of json "$file"
+            ffmpeg -v error -xerror -i "$file" -frames:v 1 -f null -
+          done
+      - name: Upload ready-to-post MP4 videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: villa-indah-dynamic-reels-ru-en-mp4
+          path: |
+            dist/villa-reels-premium/villa_indah_dynamic_ru_instagram.mp4
+            dist/villa-reels-premium/villa_indah_dynamic_en_instagram.mp4
+          retention-days: 14
+          if-no-files-found: error
