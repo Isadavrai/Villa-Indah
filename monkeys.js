@@ -1,4 +1,4 @@
-/* Feed the header macaque: all twenty residents appear, with one cursor follower. */
+/* Feed the header macaque: all twenty residents appear, with one pointer follower. */
 function createMonkeyTroupe({root,toggle,label,reduced,translate}){
  const base='assets/monkeys/generated/',banana=document.getElementById('monkey-banana'),status=document.getElementById('monkey-instruction');
  const perches=[
@@ -25,12 +25,12 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
  function headerImage(){toggle.querySelector('img').src=reduced.matches?still('P01'):clip('P01')}
  function stopFrame(){cancelAnimationFrame(frame);frame=0;last=0}
  function runnerMode(){
-  if(!runner)return;const anchored=mobile()||reduced.matches;runner.el.className='macaque '+(anchored?'anchored':'follower');runner.el.dataset.side='right';
+  if(!runner)return;const anchored=reduced.matches;runner.el.className='macaque '+(anchored?'anchored':'follower');runner.el.dataset.side='right';
   (anchored?document.querySelector('#lounge-perch'):root).append(runner.el);
   runnerMotion(false);
   runner.el.style.transform=anchored?'':`translate3d(${runner.x}px,${runner.y}px,0)`;
  }
- function runnerMotion(moving){if(!runner)return;const src=moving&&!mobile()&&!reduced.matches?'assets/monkeys/new/F1.webp':'assets/monkeys/new/F1-still.png';if(runner.el.getAttribute('src')!==src)runner.el.src=src;runner.el.dataset.motion=moving?'running':'idle'}
+ function runnerMotion(moving){if(!runner)return;const src=moving&&!reduced.matches?'assets/monkeys/new/F1.webp':'assets/monkeys/new/F1-still.png';if(runner.el.getAttribute('src')!==src)runner.el.src=src;runner.el.dataset.motion=moving?'running':'idle'}
  function hostFor(selector){if(!selector.startsWith('gallery:'))return document.querySelector(selector);const groups=document.querySelectorAll('#photo-grid .gallery-group');return groups[Math.min(Number(selector.split(':')[1]),groups.length-1)]||document.querySelector('#gallery-perch')}
  function placeResident(r){const host=hostFor(r.selector);if(!host)return;host.classList.add('monkey-perch-host');const single=r.selector.startsWith('gallery:')&&document.querySelectorAll('#photo-grid .gallery-group').length===1;r.el.style.setProperty('--perch-x',(single?([14,50,86][Number(r.selector.split(':')[1])]):r.position)+'%');host.append(r.el)}
  function spawnRunner(){const el=document.createElement('img');el.alt='';el.draggable=false;el.dataset.monkey='F1';runner={el,x:24,y:120,vx:0,vy:0,facing:1};runnerMode()}
@@ -40,12 +40,13 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
   if(host){const el=document.createElement('img');el.className='macaque anchored resident';el.alt='';el.draggable=false;el.dataset.monkey=id;el.dataset.pose=pose||'sit';el.style.setProperty('--perch-x',position+'%');el.style.setProperty('--perch-size',size+'px');
    el.width=192;el.height=192;const r={id,el,selector,position,visible:false};residents.push(r);updateResident(r);placeResident(r);observer.observe(el)}
  }
- function enable(){if(enabled)return;enabled=true;selected=false;next=0;pointer.lastMove=null;status.textContent=translate('bananaFed');root.hidden=false;spawnRunner();updateLabel();while(next<perches.length)addResident();if(!mobile()&&!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick)}
+ function enable(){if(enabled)return;enabled=true;selected=false;next=0;pointer.lastMove=null;status.textContent=translate('bananaFed');root.hidden=false;spawnRunner();updateLabel();while(next<perches.length)addResident();if(!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick)}
  function disable(){enabled=false;selected=false;next=0;stopFrame();runner?.el.remove();runner=null;for(const r of residents){observer.unobserve(r.el);r.el.remove()}residents.length=0;root.replaceChildren();root.hidden=true;updateLabel();status.textContent=''}
- function tick(time){frame=0;if(!enabled||mobile()||reduced.matches||document.hidden||!runner)return;
+ function tick(time){frame=0;if(!enabled||reduced.matches||document.hidden||!runner)return;
   if(pointer.lastMove===null){runner.vx=0;runner.vy=0;runnerMotion(false);last=0;return}
   const dt=Math.min(.035,(time-(last||time))/1000);last=time;
-  const tx=Math.max(6,Math.min(innerWidth-82,pointer.x-95)),ty=Math.max(90,Math.min(innerHeight-86,pointer.y+25));
+  const touchLayout=mobile(),size=innerWidth<=700?60:76;
+  const tx=Math.max(6,Math.min(innerWidth-size-6,pointer.x-(touchLayout?74:95))),ty=Math.max(touchLayout?116:90,Math.min(innerHeight-size-10,pointer.y+(touchLayout?18:25)));
   const dx=tx-runner.x,dy=ty-runner.y,dist=Math.hypot(dx,dy),speed=Math.min(245,dist*3),alpha=1-Math.exp(-6*dt);
   if(dist<=2){runner.x=tx;runner.y=ty;runner.vx=0;runner.vy=0;runnerMotion(false);last=0;runner.el.style.transform=`translate3d(${tx}px,${ty}px,0) scaleX(${runner.facing})`;return}
   runnerMotion(true);
@@ -62,10 +63,15 @@ function createMonkeyTroupe({root,toggle,label,reduced,translate}){
  banana.addEventListener('pointercancel',clearDrag);banana.addEventListener('lostpointercapture',()=>{if(drag)clearDrag()});
  banana.addEventListener('click',()=>{if(ignoreClick){ignoreClick=false;return}selected=!selected;status.textContent=translate(selected?'bananaReady':'bananaDrop');updateLabel()});
  toggle.addEventListener('click',()=>{if(enabled)disable();else if(selected)enable();else status.textContent=translate('bananaDrop')});
- addEventListener('pointermove',e=>{if(enabled&&!mobile()&&(e.clientX!==pointer.x||e.clientY!==pointer.y)){pointer.x=e.clientX;pointer.y=e.clientY;pointer.lastMove=performance.now();if(!frame)frame=requestAnimationFrame(tick)}},{passive:true});
- addEventListener('resize',()=>{if(!enabled)return;stopFrame();runnerMode();if(!mobile()&&!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick)});
- document.addEventListener('visibilitychange',()=>{stopFrame();runnerMotion(false);if(enabled&&!document.hidden&&!mobile()&&!reduced.matches)frame=requestAnimationFrame(tick)});
- reduced.addEventListener('change',()=>{headerImage();for(const r of residents)updateResident(r);stopFrame();runnerMode();if(enabled&&!mobile()&&!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick)});
+ function followPoint(x,y){if(!enabled||reduced.matches||document.hidden)return;if(pointer.lastMove===null||x!==pointer.x||y!==pointer.y){pointer.x=x;pointer.y=y;pointer.lastMove=performance.now();if(!frame)frame=requestAnimationFrame(tick)}}
+ addEventListener('pointermove',e=>{if(e.pointerType!=='touch')followPoint(e.clientX,e.clientY)},{passive:true});
+ // Passive Touch Events continue during native scrolling after pointercancel on iOS/Android.
+ function followTouch(e){if(e.touches.length!==1)return;const touch=e.touches[0];followPoint(touch.clientX,touch.clientY)}
+ addEventListener('touchstart',followTouch,{passive:true});
+ addEventListener('touchmove',followTouch,{passive:true});
+ addEventListener('resize',()=>{if(!enabled)return;stopFrame();runnerMode();if(!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick)});
+ document.addEventListener('visibilitychange',()=>{stopFrame();runnerMotion(false);if(enabled&&!document.hidden&&!reduced.matches)frame=requestAnimationFrame(tick)});
+ reduced.addEventListener('change',()=>{headerImage();for(const r of residents)updateResident(r);stopFrame();runnerMode();if(enabled&&!reduced.matches&&!document.hidden)frame=requestAnimationFrame(tick)});
  const galleryChanges=new MutationObserver(()=>{if(enabled)residents.filter(r=>r.selector.startsWith('gallery:')).forEach(placeResident)});galleryChanges.observe(document.getElementById('photo-grid'),{childList:true});
  toggle.querySelector('img').dataset.monkey='P01';toggle.setAttribute('aria-describedby','monkey-instruction');banana.setAttribute('aria-describedby','monkey-instruction');headerImage();updateLabel();return {updateLabel};
 }

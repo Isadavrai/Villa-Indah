@@ -1,0 +1,1 @@
+{"status":"PASS","checks":["touch starts and moves follower","native scrolling continues after pointercancel","follower reaches last touch and stops","links remain tappable","reduced motion stays static","reset removes troupe"],"scroll":{"y":285,"moves":5,"cancels":1}}
