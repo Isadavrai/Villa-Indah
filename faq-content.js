@@ -54,7 +54,7 @@ const faqContent={
       "id": "q08",
       "category": "resort",
       "question": "Входят ли лежаки и услуги пляжного клуба в стоимость?",
-      "answer": "Лежаки входят в стоимость проживания, услуги пляжного клуба оплачиваются отдельно.",
+      "answer": "Лежаки оплачиваются отдельно отелю, как и дополнительные услуги пляжного клуба.",
       "needsConfirmation": false
     },
     {
@@ -182,7 +182,7 @@ const faqContent={
       "id": "q08",
       "category": "resort",
       "question": "Are loungers and beach club services included?",
-      "answer": "Sun loungers are included in your stay. Beach club services are charged separately.",
+      "answer": "Sun loungers and additional beach club services are charged separately by the hotel.",
       "needsConfirmation": false
     },
     {
@@ -310,7 +310,7 @@ const faqContent={
       "id": "q08",
       "category": "resort",
       "question": "¿Están incluidas las tumbonas y los servicios del club de playa?",
-      "answer": "Las tumbonas están incluidas en la estancia. Los servicios del club de playa se pagan aparte.",
+      "answer": "Las tumbonas y los servicios adicionales del club de playa se pagan por separado al hotel.",
       "needsConfirmation": false
     },
     {
