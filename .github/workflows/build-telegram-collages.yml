@@ -35,7 +35,7 @@ jobs:
           root=Path('assets/telegram')
           for lang in ('ru','en'):
               paths=list((root/lang).glob('*.jpg'))
-              assert len(paths)==10, f'{lang}: expected 10, got {len(paths)}'
+              assert len(paths)==11, f'{lang}: expected 11, got {len(paths)}'
               assert all(x.stat().st_size>25000 for x in paths)
           assert (root/'manifest.json').exists()
           PY
