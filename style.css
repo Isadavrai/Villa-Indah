@@ -462,7 +462,7 @@ body:has(dialog[open]){overflow:hidden}
 #monkey-banana .banana-hint{position:absolute;left:-20px;top:8px;width:32px;height:26px;overflow:visible;fill:none;stroke:#53604c;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;filter:none;pointer-events:none}
 #monkey-banana.dragging .banana-hint{visibility:hidden}
 /* A clear leftward feeding gesture: macaque, hand/arrow, then banana. */
-#monkey-banana{left:113px;top:32px;width:34px;height:34px}
+#monkey-banana{left:109px;top:16px;width:34px;height:34px}
 #banana-gesture{position:fixed;z-index:25;left:68px;top:23px;width:44px;height:40px;pointer-events:none;color:#60705b}
 #banana-gesture svg{width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 #banana-gesture .swipe-hand{fill:var(--paper)}
@@ -483,7 +483,7 @@ body.monkeys-active .contact-actions{position:relative;margin-top:80px}
 #phone-help{display:block;font-size:13px;font-weight:400;line-height:1.5;margin-top:8px;color:#47584c}
 @media(min-width:701px) and (max-width:1199px){#menu-toggle{margin-left:118px}}
 @media(max-width:700px){
- #monkey-banana{left:101px;top:36px;width:29px;height:29px}
+ #monkey-banana{left:97px;top:18px;width:29px;height:29px}
  #banana-gesture{left:63px;top:27px;width:36px;height:34px}
  header{height:108px;grid-template-columns:1fr auto;gap:6px}
  header.scrolled{height:108px}
