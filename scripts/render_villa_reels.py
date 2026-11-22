@@ -2,7 +2,7 @@
 """Produce real-photo vertical reels for Villa Indah without generative scene edits.
 
 Source photos come ONLY from this repository. No synthetic property imagery.
-Outputs: bilingual silent MP4 reels for review, not auto-published.
+Outputs: bilingual silent MP4 reels for review, not auto-published.\nNever represent resort facilities as private villa amenities.
 """
 from __future__ import annotations
 
