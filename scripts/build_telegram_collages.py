@@ -19,6 +19,7 @@ MUTED = (105, 106, 88)
 WHITE = (253, 250, 243)
 # Verified paths in the official original photography library.
 STORIES = {
+    "overview": ["Private Swimming Pool/03.webp", "Resort Facilities/02.webp", "Living room/01.webp", "Beach/02.webp"],
     "private_pool": ["Private Swimming Pool/03.webp", "Private Swimming Pool/01.webp", "Private Swimming Pool/04.webp", "Outdoor lounge Area/01.webp"],
     "beach": ["Beach/02.webp", "Beach/01.webp", "Beach/04.webp", "Beach/03.webp"],
     "grounds": ["Villa Grounds/02.webp", "Villa Grounds/01.webp", "Outdoor lounge Area/02.webp", "Private Swimming Pool/03.webp"],
@@ -32,6 +33,7 @@ STORIES = {
 }
 TITLES = {
     "ru": {
+        "overview": "Вилла и курорт",
         "private_pool": "Собственный бассейн", "beach": "Пляж и океан",
         "grounds": "Территория виллы", "master": "Главная спальня",
         "terrace": "Спальня с террасой", "twin": "Спальня с двумя кроватями",
@@ -39,6 +41,7 @@ TITLES = {
         "lounge": "Зона отдыха", "resort_experiences": "Инфраструктура курорта",
     },
     "en": {
+        "overview": "Villa & Resort",
         "private_pool": "Private Swimming Pool", "beach": "Beach & Ocean",
         "grounds": "Villa Grounds", "master": "Master Bedroom",
         "terrace": "Terrace Bedroom", "twin": "Twin Bedroom",
