@@ -1,10 +1,10 @@
-name: Villa Indah Premium — downloadable RU + EN
+name: Villa Indah Premium V2 — RU + EN
 on:
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  render-verify-deliver:
+  render-verify-deliver-v2:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -17,38 +17,35 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg fonts-noto-core
           python -m pip install numpy Pillow opencv-python-headless scipy
-      - name: Render both final MP4s
-        run: python -u scripts/premium-reels/build.py --repo . --out dist/reels
-      - name: Decode and verify both videos
-        run: python -u scripts/premium-reels/verify.py --repo . --out dist/reels
-      - name: Package previews and reproducible sources
-        run: python scripts/premium-reels/package_delivery.py
-      - name: Upload Russian video
+      - name: Render reference-led RU and EN videos
+        run: python -u scripts/premium-reels-v2/build_v2.py --repo . --out dist/reels-v2
+      - name: Verify both final MP4 files
+        run: python -u scripts/premium-reels-v2/verify_v2.py --repo . --out dist/reels-v2
+      - name: Package report and source scripts
+        run: python scripts/premium-reels-v2/package_v2.py
+      - name: Upload Russian V2 video
         uses: actions/upload-artifact@v4
         with:
-          name: Villa_Indah_Premium_RU
-          path: dist/reels/Villa_Indah_Premium_RU.mp4
+          name: Villa_Indah_Premium_V2_RU
+          path: dist/reels-v2/Villa_Indah_Premium_V2_RU.mp4
           compression-level: 0
           retention-days: 90
-          if-no-files-found: error
-      - name: Upload English video
+      - name: Upload English V2 video
         uses: actions/upload-artifact@v4
         with:
-          name: Villa_Indah_Premium_EN
-          path: dist/reels/Villa_Indah_Premium_EN.mp4
+          name: Villa_Indah_Premium_V2_EN
+          path: dist/reels-v2/Villa_Indah_Premium_V2_EN.mp4
           compression-level: 0
           retention-days: 90
-          if-no-files-found: error
-      - name: Upload production kit
+      - name: Upload V2 production kit
         uses: actions/upload-artifact@v4
         with:
-          name: Villa_Indah_Production_Kit
+          name: Villa_Indah_Premium_V2_Production_Kit
           path: |
-            dist/reels/Villa_Indah_Production_Kit.zip
-            dist/reels/*Preview*.jpg
-            dist/reels/*Contact*.jpg
-            dist/reels/*.txt
-            dist/reels/*.json
+            dist/reels-v2/Villa_Indah_Premium_V2_Production_Kit.zip
+            dist/reels-v2/*Preview*.jpg
+            dist/reels-v2/*Contact*.jpg
+            dist/reels-v2/*.txt
+            dist/reels-v2/*.json
           compression-level: 0
           retention-days: 90
-          if-no-files-found: error
