@@ -23,8 +23,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from zipfile import ZipFile
-          from PIL import Image
-          import io
           root=Path("assets/telegram")
           pack=root/"media-pack.zip"
           if not pack.exists():
