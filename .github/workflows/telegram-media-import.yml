@@ -1,0 +1,62 @@
+name: Install Telegram Media Pack
+
+on:
+  push:
+    paths:
+      - 'assets/telegram/media-pack.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate and extract 20 approved collages
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          from PIL import Image
+          import io
+          root=Path("assets/telegram")
+          pack=root/"media-pack.zip"
+          if not pack.exists():
+              print("No new pack")
+              raise SystemExit(0)
+          with ZipFile(pack) as z:
+              items=[i for i in z.infolist() if not i.is_dir()]
+              if len(items) != 21:
+                  raise SystemExit(f"Expected exactly 20 collages + manifest; got {len(items)}")
+              for info in items:
+                  name=Path(info.filename)
+                  if name.is_absolute() or ".." in name.parts:
+                      raise SystemExit("Invalid archive path")
+                  if str(name) == "manifest.json":
+                      continue
+                  if len(name.parts) != 2 or name.parts[0] not in ("ru", "en") or name.suffix != ".jpg":
+                      raise SystemExit(f"Invalid media file path: {name}")
+                  data=z.read(info)
+                  if len(data)>8_000_000:
+                      raise SystemExit(f"Image too large: {name}")
+                  target=root/name
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  target.write_bytes(data)
+          pack.unlink()
+          PY
+      - name: Save media in the website repository
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/telegram
+          if ! git diff --cached --quiet; then
+            git commit -m "Install original-photo Telegram collage collection"
+            git push
+          fi
