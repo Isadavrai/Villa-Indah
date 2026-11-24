@@ -6,7 +6,7 @@
 - Host: GitHub Pages. Existing CNAME retained as `villa-indah.com`; Cloudflare DNS and Pages publishing mode unchanged.
 - Formspree endpoint: https://formspree.io/f/mrpqlvrd
 - GA4: G-D7TEB0RWS6
-- Telegram: https://t.me/VillaIndahV
+- Telegram: https://t.me/VillaIndah_bali
 
 No private API key, bot token or visitor submission is stored in the repository.
 
@@ -62,7 +62,7 @@ Not verified here: real Formspree acceptance/account entry, actual email deliver
 1. **Formspree**: open the form `mrpqlvrd`, confirm destination email, notifications, account activation and any origin rules for `https://villa-indah.com`. Submit one clearly marked TEST enquiry after deployment, then check both the Submissions entry and recipient mailbox. Check spam folders if needed. Do not treat HTTP 200 alone as proof of email delivery.
 2. **GA4**: review Enhanced Measurement as above and choose retention settings. In a clean browser session, reject analytics and verify no googletagmanager/GA collection requests. Accept analytics and check one page_view. Enter the form once, click Telegram/email, submit a valid TEST enquiry and verify the four explicit event names. Invalid/server-error submissions must not emit generate_lead. Withdraw analytics and verify no further collection, while the form and Telegram still work.
 3. In GA4 Admin → Events/Key events, mark `generate_lead` as a key event when available. Do not create a second derived event that duplicates the site event. Confirm the actual GA4 ID and production stream URL.
-4. **Telegram**: open the button on desktop and phone and confirm the destination is @VillaIndahV. No bot or automatic dates/message generation is implemented.
+4. **Telegram**: open the button on desktop and phone and confirm the destination is @VillaIndah_bali. No bot or automatic dates/message generation is implemented.
 5. **Domain**: check https://villa-indah.com and any intended www redirect, certificate and Pages Enforce HTTPS. Verify canonical/OG and https://villa-indah.com/robots.txt and /sitemap.xml. DNS was not changed by this work.
 6. **Privacy**: approve operator details, enquiry/correspondence and GA retention settings, recipient access and deletion procedures. No legal compliance certification or invented retention period is provided.
 
