@@ -2,7 +2,7 @@ const assert=require('node:assert/strict');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 (async()=>{const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const p=await b.newPage({viewport:{width:1440,height:1000}});const errors=[];p.on('pageerror',e=>errors.push(e.message));let submitted;
 await p.route('https://formspree.io/f/mrpqlvrd',r=>{submitted=r.request().postData();return r.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:'{"ok":true}'})});
-await p.clock.install();await p.goto(process.env.BASE_URL||'http://127.0.0.1:4174/');await p.locator('#reject-analytics').click();await p.evaluate(()=>document.documentElement.style.scrollBehavior='auto');
+await p.addInitScript(()=>{try{sessionStorage.setItem('indah-season-2026','seen')}catch{}});await p.clock.install();await p.goto(process.env.BASE_URL||'http://127.0.0.1:4174/');await p.locator('#reject-analytics').click();await p.evaluate(()=>document.documentElement.style.scrollBehavior='auto');
 assert.ok(await p.locator('#phone-country option').count()>80);
 await p.locator('#phone-country').selectOption('GB');await p.locator('[name=phone]').fill('07123456789');assert.equal(await p.evaluate(()=>enquiryPhone()),'+447123456789');
 await p.locator('#phone-country').selectOption('IT');await p.locator('[name=phone]').fill('0612345678');assert.equal(await p.evaluate(()=>enquiryPhone()),'+390612345678');

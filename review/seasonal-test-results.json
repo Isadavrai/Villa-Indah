@@ -1,0 +1,1 @@
+{"status":"PASS","layouts":["desktop","mobile"],"checks":["invitation after consent","catch opens offer","message marker preserves existing text and no duplicate","RU EN ES","no overflow","keyboard and Escape","reduced motion static","once per session"]}

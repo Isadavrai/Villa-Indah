@@ -4,7 +4,7 @@ const {chromium}=require('/opt/codex/runtimes/codex-primary-runtime/dependencies
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(process.env.BASE_URL||'http://127.0.0.1:4174/');
+ await page.addInitScript(()=>{try{sessionStorage.setItem('indah-season-2026','seen')}catch{}});await page.goto(process.env.BASE_URL||'http://127.0.0.1:4174/');
  await page.locator('#reject-analytics').tap();await page.locator('#monkey-banana').tap();await page.locator('#monkey-toggle').tap();
  assert.equal(await page.locator('.resident').count(),19);assert.equal(await page.locator('.follower').count(),1);
  const client=await context.newCDPSession(page);
@@ -29,7 +29,7 @@ const {chromium}=require('/opt/codex/runtimes/codex-primary-runtime/dependencies
  await page.screenshot({path:'review/mobile-finger-follower.png'});
  await page.locator('#monkey-toggle').tap();assert.equal(await page.locator('.macaque').count(),0);assert.deepEqual(errors,[]);
  const quiet=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'}),quietPage=await quiet.newPage();
- await quietPage.goto(process.env.BASE_URL||'http://127.0.0.1:4174/');await quietPage.locator('#reject-analytics').tap();await quietPage.locator('#monkey-banana').tap();await quietPage.locator('#monkey-toggle').tap();
+ await quietPage.addInitScript(()=>{try{sessionStorage.setItem('indah-season-2026','seen')}catch{}});await quietPage.goto(process.env.BASE_URL||'http://127.0.0.1:4174/');await quietPage.locator('#reject-analytics').tap();await quietPage.locator('#monkey-banana').tap();await quietPage.locator('#monkey-toggle').tap();
  assert.equal(await quietPage.locator('.follower').count(),0);assert.ok((await quietPage.locator('[data-monkey=F1]').getAttribute('src')).endsWith('-still.png'));
  await quietPage.touchscreen.tap(250,450);assert.equal(await quietPage.locator('.follower').count(),0);await quiet.close();
  console.log(JSON.stringify({status:'PASS',checks:['touch starts and moves follower','native scrolling continues after pointercancel','follower reaches last touch and stops','links remain tappable','reduced motion stays static','reset removes troupe'],scroll:scrolled}));

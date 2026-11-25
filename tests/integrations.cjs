@@ -10,7 +10,7 @@ const mockTag=`(()=>{const layer=window.dataLayer;const push=layer.push.bind(lay
  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
  const checks=[],errors=[],hits=[],submissions=[],tagRequests=[];
  let responseMode='success',releaseSubmission;
- const context=await browser.newContext({viewport:{width:1440,height:1000}});
+ const context=await browser.newContext({viewport:{width:1440,height:1000}});await context.addInitScript(()=>{try{sessionStorage.setItem('indah-season-2026','seen')}catch{}});
  await context.route(tag,async route=>{tagRequests.push(route.request().url());await route.fulfill({contentType:'text/javascript',body:mockTag})});
  await context.route('https://www.google-analytics.com/**',async route=>{hits.push(route.request().postData());await route.fulfill({status:204,headers:{'access-control-allow-origin':'*'}})});
  await context.route('https://www.google.com/maps?*',route=>route.fulfill({contentType:'text/html',body:'<!doctype html><title>Map mock</title><p>Map test</p>'}));
