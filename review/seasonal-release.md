@@ -7,3 +7,5 @@ Invitation appears once per tab session, after the privacy banner is dismissed. 
 Added RU/EN/ES wildlife guidance and a subjective description of the resort beach without inventing a ranking or sightings guarantee. The festive hat is a lightweight SVG overlay on an existing owner-provided animation.
 
 Browser checks cover desktop/mobile invitation, catch, message preservation, language changes, keyboard, reduced motion and overflow. Existing form/analytics/gallery integration suite also run with the introductory offer marked seen. No live enquiry sent and no discount delivery claimed.
+
+Owner refinement: travel speed increased by 50% (1.5 s to 1 s); route interval reduced proportionally (2200 to 1467 ms). Accessible capture and reduced-motion alternatives preserved. Intro copy shortened to the owner's wording in RU with EN/ES equivalents. Wildlife guidance is now an ordinary paragraph immediately after the day-at-the-villa paragraph, with no separate heading or decorative divider. Desktop/mobile seasonal checks passed again.
